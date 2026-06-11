@@ -1,0 +1,41 @@
+name: Daily job matches
+
+on:
+  schedule:
+    # 8:00 AM IST (UTC+5:30) = 02:30 UTC
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  scrape-and-email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Prepare resume
+        env:
+          RESUME_MD: ${{ secrets.RESUME_MD }}
+        run: node scripts/ci-setup.js
+
+      - name: Scrape, match, and email
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT || '587' }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          CONFIG_PATH: config.example.json
+          CAREER_PAGES_FROM_JSON: "1"
+        run: npm start

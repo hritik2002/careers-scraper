@@ -1,0 +1,23 @@
+{
+  "name": "careers-scraper",
+  "version": "1.0.0",
+  "description": "Scrape career pages, match jobs to your resume, and email high-fit opportunities",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "scrape": "node src/index.js --dry-run",
+    "check-coverage": "node src/check-coverage.js",
+    "resolve-pages": "node scripts/resolve-career-pages.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "nodemailer": "^6.9.16",
+    "openai": "^4.77.0"
+  }
+}

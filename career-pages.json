@@ -1,0 +1,516 @@
+{
+  "mapping": {
+    "Airbnb": "https://careers.airbnb.com/positions/",
+    "Alphasense": "https://boards.greenhouse.io/alphasense",
+    "Apollo.io": "https://boards.greenhouse.io/apolloio",
+    "Apple": "https://jobs.apple.com/en-us/search",
+    "Atlan": "https://jobs.ashbyhq.com/atlan",
+    "Atlassian": "https://www.atlassian.com/company/careers/all-jobs",
+    "BharatPe": "https://bharatpe.com/careers",
+    "Branch International": "https://boards.greenhouse.io/branch",
+    "BrightEdge": "https://www.brightedge.com/careers",
+    "Cars24": "https://www.cars24.com/careers/",
+    "Chargebee": "https://www.chargebee.com/careers/",
+    "Clearstreet": "https://boards.greenhouse.io/clearstreet",
+    "Cohesity": "https://careers.cohesity.com/",
+    "Cockroach Labs": "https://boards.greenhouse.io/cockroachlabs",
+    "Confluent": "https://jobs.ashbyhq.com/confluent",
+    "Confido Health": "https://jobs.ashbyhq.com/confido",
+    "Coursera": "https://careers.coursera.com/",
+    "Databricks": "https://boards.greenhouse.io/databricks",
+    "DE Shaw": "https://www.deshaw.com/careers",
+    "Demandbase": "https://jobs.ashbyhq.com/demandbase",
+    "Enterpret": "https://boards.greenhouse.io/enterpret",
+    "FalconX": "https://boards.greenhouse.io/falconx",
+    "Fleek": "https://jobs.ashbyhq.com/fleek",
+    "Galileo": "https://boards.greenhouse.io/galileo",
+    "Google": "https://careers.google.com/jobs/results/",
+    "Groww": "https://groww.in/careers",
+    "Headout": "https://www.headout.com/careers/",
+    "IMC Trading": "https://www.imc.com/us/careers",
+    "Intuit": "https://jobs.intuit.com/search-jobs",
+    "JP Morgan": "https://careers.jpmorgan.com/us/en/search-results",
+    "Keychain": "https://boards.greenhouse.io/keychain",
+    "Liberis": "https://boards.greenhouse.io/liberis",
+    "Mindtickle": "https://jobs.lever.co/mindtickle",
+    "Nasuni": "https://boards.greenhouse.io/nasuni",
+    "Navi": "https://navi.com/careers",
+    "Netradyne": "https://boards.greenhouse.io/netradyne",
+    "Network Science": "https://boards.greenhouse.io/network",
+    "Paytm Payments Bank": "https://jobs.lever.co/paytm",
+    "PayU": "https://corporate.payu.com/careers/",
+    "PhonePe": "https://www.phonepe.com/careers/",
+    "PocketFM": "https://jobs.lever.co/pocketfm",
+    "Quince": "https://boards.greenhouse.io/quince",
+    "Razorpay": "https://razorpay.com/jobs/",
+    "Rippling": "https://www.rippling.com/careers",
+    "Roblox": "https://careers.roblox.com/jobs",
+    "Salesforce": "https://careers.salesforce.com/en/jobs/",
+    "Skyflow": "https://jobs.ashbyhq.com/skyflow",
+    "Slice": "https://sliceit.com/careers",
+    "SRIB": "https://research.samsung.com/careers",
+    "Stable Money": "https://jobs.ashbyhq.com/stable",
+    "Stripe": "https://boards.greenhouse.io/stripe",
+    "Uber": "https://www.uber.com/us/en/careers/list/",
+    "Upstox": "https://upstox.com/careers/",
+    "Walmart": "https://careers.walmart.com/us/en/search-results",
+    "Wissen Technology": "https://jobs.ashbyhq.com/wissen",
+    "Zeta": "https://jobs.lever.co/zeta",
+    "Zscaler": "https://www.zscaler.com/careers",
+    "Harness": "https://boards.greenhouse.io/harnessinc",
+    "MoEngage": "https://www.moengage.com/careers/",
+    "Enlyft": "https://www.enlyft.com/careers",
+    "Skillz": "https://www.skillz.com/careers/",
+    "AlphaGrep Securities": "https://boards.greenhouse.io/alphagrepsecurities",
+    "Bloomreach": "https://boards.greenhouse.io/bloomreach",
+    "CommerceIQ": "https://boards.greenhouse.io/commerceiq",
+    "Crunchyroll": "https://boards.greenhouse.io/crunchyroll",
+    "DeepIntent": "https://boards.greenhouse.io/deepintent",
+    "EarnIn": "https://boards.greenhouse.io/earnin",
+    "Glean": "https://boards.greenhouse.io/gleanwork",
+    "Nirmata": "https://boards.greenhouse.io/nirmata",
+    "Postman": "https://boards.greenhouse.io/postman",
+    "Schrödinger (LiveDesign)": "https://boards.greenhouse.io/schrdinger",
+    "YipitData": "https://boards.greenhouse.io/yipitdata",
+    "Exaforce": "https://www.exaforce.com/careers",
+    "Vapi": "https://jobs.ashbyhq.com/vapi",
+    "Mem0": "https://jobs.ashbyhq.com/mem0",
+    "MarqVision": "https://boards.greenhouse.io/marqvision",
+    "Alaan": "https://ats.rippling.com/alaan-careers/jobs",
+    "TrueFoundry": "https://boards.greenhouse.io/truefoundry",
+    "Relevance AI": "https://jobs.ashbyhq.com/relevanceai",
+    "Atomicwork": "https://boards.greenhouse.io/atomicwork",
+    "Finster AI": "https://boards.greenhouse.io/finsterai",
+    "Sarvam AI": "https://jobs.ashbyhq.com/sarvam",
+    "TensorWave": "https://jobs.ashbyhq.com/tensorwave",
+    "FurtherAI": "https://jobs.ashbyhq.com/furtherai",
+    "GrowthBook": "https://www.ycombinator.com/companies/growthbook/jobs",
+    "Firecrawl": "https://jobs.ashbyhq.com/firecrawl",
+    "Gumloop": "https://jobs.ashbyhq.com/gumloop",
+    "Orkes": "https://boards.greenhouse.io/orkes",
+    "Daloopa": "https://ats.rippling.com/daloopa/jobs",
+    "OpenObserve": "https://jobs.ashbyhq.com/openobserve-careers",
+    "Neysa": "https://boards.greenhouse.io/neysanetwork",
+    "Composio": "https://jobs.ashbyhq.com/composio",
+    "Heizen": "https://www.heizen.work/careers",
+    "Latent AI": "https://jobs.ashbyhq.com/latent"
+  },
+  "unscrapedCompanies": [
+    {
+      "company": "Abstract Security",
+      "url": "https://www.abstractsecurity.com/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Adobe",
+      "url": "https://careers.adobe.com/us/en/search-results",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Agoda",
+      "url": "https://careersatagoda.com/jobs",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Aidetic",
+      "url": "https://www.aidetic.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Aion",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Amazon",
+      "url": "https://www.amazon.jobs/en/search",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Arcana",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Arcesium",
+      "url": "https://www.arcesium.com/careers.html",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Bartr",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Blinkit",
+      "url": "https://blinkit.com/careers",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Booking.com",
+      "url": "https://careers.booking.com/jobs",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Cautio",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Cleartrip",
+      "url": "https://careers.cleartrip.com/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Constantinople",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Cred",
+      "url": "https://cred.club/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Cuemath",
+      "url": "https://careers.cuemath.com/",
+      "reason": "Fetch failed"
+    },
+    {
+      "company": "Curefit",
+      "url": "https://www.cult.fit/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Delta Exchange",
+      "url": "https://www.delta.exchange/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "DigitalOcean",
+      "url": "https://www.digitalocean.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "DoorDash",
+      "url": "https://careers.doordash.com/",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Dyumn Tech",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Eightfold AI",
+      "url": "https://jobs.ashbyhq.com/eightfold",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Eloelo",
+      "url": "https://eloelo.in/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "EventBrite",
+      "url": "https://www.eventbritecareers.com/jobs",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Fanatics",
+      "url": "https://www.fanaticsinc.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Fancraze",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Flipkart",
+      "url": "https://www.flipkartcareers.com/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Flipkart SuperMoney",
+      "url": "https://super.money/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Fluent Health",
+      "url": "https://www.fluenthealth.com/careers",
+      "reason": "Fetch failed"
+    },
+    {
+      "company": "Flyra",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Forgecode",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Games24x7",
+      "url": "https://www.games24x7.com/careers/",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Gojek",
+      "url": "https://careers.gojek.com/",
+      "reason": "Fetch failed"
+    },
+    {
+      "company": "Gupshup",
+      "url": "https://www.gupshup.io/about/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Inferless",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Intervue",
+      "url": "https://intervue.io/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Iomete",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Jar",
+      "url": "https://www.myjar.app/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Jio",
+      "url": "https://careers.jio.com/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Jio Fynd",
+      "url": "https://fynd.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "JioHotstar",
+      "url": "https://careers.hotstar.com/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Jupiter Money",
+      "url": "https://jupiter.money/careers/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Klub",
+      "url": "https://www.klubworks.com/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/careers.html",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "LinkedIn",
+      "url": "https://careers.linkedin.com/jobs",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "MakeMyTrip",
+      "url": "https://careers.makemytrip.com/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Masai",
+      "url": "https://www.masaischool.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Mechademy",
+      "url": "https://mechademy.com/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Meesho",
+      "url": "https://meesho.io/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Meta",
+      "url": "https://www.metacareers.com/jobs",
+      "reason": "HTTP 400"
+    },
+    {
+      "company": "Microsoft",
+      "url": "https://careers.microsoft.com/us/en/search-results",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Myntra",
+      "url": "https://jobs.myntra.com/",
+      "reason": "Custom Flutter SPA (Firebase); careers.myntra.com has no listings; no Greenhouse/Lever/Ashby board"
+    },
+    {
+      "company": "Moneyview",
+      "url": "https://www.moneyview.in/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Nexthop AI",
+      "url": "https://www.nexthop.ai/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Novama Wealth",
+      "url": "https://www.novamawealth.com/careers",
+      "reason": "Fetch failed"
+    },
+    {
+      "company": "Nutanix",
+      "url": "https://careers.nutanix.com/jobs",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Oracle",
+      "url": "https://careers.oracle.com/jobs/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "OYO",
+      "url": "https://www.oyorooms.com/careers/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Payoneer",
+      "url": "https://www.payoneer.com/careers/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Priceline",
+      "url": "https://careers.priceline.com/jobs",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "QRT (Qube Research Technologies)",
+      "url": "https://www.qube-rt.com/careers/",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Racro",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Rio",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Roku",
+      "url": "https://www.wbd.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Saleschat",
+      "url": "https://saleschat.io/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "ServiceNow",
+      "url": "https://careers.servicenow.com/jobs",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "ShareChat",
+      "url": "https://sharechat.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Sifthub",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Sobeys",
+      "url": "https://sobeys.com/en/careers/",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Souled Store",
+      "url": "https://www.thesouledstore.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Starkey",
+      "url": "https://www.starkey.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Stronkworks",
+      "url": null,
+      "reason": "No career page URL found"
+    },
+    {
+      "company": "Sundial",
+      "url": "https://sundial.so/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Tetrate",
+      "url": "https://jobs.ashbyhq.com/tetrate",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Times Group",
+      "url": "https://timesgroup.com/careers/",
+      "reason": "Fetch failed"
+    },
+    {
+      "company": "TrueMeds",
+      "url": "https://truemeds.in/careers",
+      "reason": "HTTP 404"
+    },
+    {
+      "company": "Twilio",
+      "url": "https://www.twilio.com/en-us/company/jobs",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Uber Freight",
+      "url": "https://www.uberfreight.com/careers/",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Unicards",
+      "url": "https://www.uni.cards/careers",
+      "reason": "HTTP 403"
+    },
+    {
+      "company": "Wayfair",
+      "url": "https://www.wayfair.com/careers/jobs",
+      "reason": "HTTP 429"
+    },
+    {
+      "company": "Wishlink",
+      "url": "https://www.wishlink.com/careers",
+      "reason": "HTTP 500"
+    },
+    {
+      "company": "Zepto",
+      "url": "https://www.zeptonow.com/careers",
+      "reason": "Could not find job listings"
+    },
+    {
+      "company": "Zomato",
+      "url": "https://www.zomato.com/careers",
+      "reason": "Could not find job listings"
+    }
+  ],
+  "updatedAt": "2026-06-10T21:38:35.362Z"
+}
