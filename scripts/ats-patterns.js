@@ -211,6 +211,23 @@ async function probeKula(slug) {
 }
 
 async function probeRippling(slug) {
+  for (const variant of ripplingSlugVariants(slug)) {
+    const result = await probeRipplingSlug(variant);
+    if (result) return result;
+  }
+  return null;
+}
+
+function ripplingSlugVariants(slug) {
+  const variants = new Set([slug]);
+  variants.add(`${slug}-careers`);
+  if (slug.endsWith("-careers")) {
+    variants.add(slug.replace(/-careers$/, ""));
+  }
+  return [...variants];
+}
+
+async function probeRipplingSlug(slug) {
   try {
     const url = ATS_PATTERNS.rippling.url(slug);
     const response = await fetch(url, {
@@ -219,8 +236,33 @@ async function probeRippling(slug) {
     });
     if (!response.ok) return null;
     const html = await response.text();
-    if (!html.includes(`/${slug}/jobs/`)) return null;
-    return { platform: "rippling", url, jobCount: null };
+    const jobLinks = html.match(new RegExp(`/${slug}/jobs/[a-f0-9-]+`, "gi"));
+    const nextData = html.includes("__NEXT_DATA__") && html.includes(`"slug":"${slug}"`);
+    if (!jobLinks?.length && !nextData) return null;
+
+    let jobCount = 0;
+    const nextMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (nextMatch) {
+      try {
+        const data = JSON.parse(nextMatch[1]);
+        for (const query of data.props?.pageProps?.dehydratedState?.queries || []) {
+          const items = query.state?.data?.items;
+          if (!Array.isArray(items)) continue;
+          const jobs = items.filter((item) => item?.url?.includes("/jobs/"));
+          if (jobs.length) {
+            jobCount = jobs.length;
+            break;
+          }
+        }
+      } catch {
+        /* ignore */
+      }
+    }
+
+    if (jobCount === 0 && jobLinks?.length) jobCount = jobLinks.length;
+    if (jobCount === 0 && nextData) jobCount = 1;
+
+    return { platform: "rippling", url, jobCount: jobCount || null };
   } catch {
     return null;
   }

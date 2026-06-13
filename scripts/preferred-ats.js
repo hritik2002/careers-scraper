@@ -6,6 +6,9 @@
 export const PREFERRED_ATS_ORDER = [
   "greenhouse",
   "ashby",
+  "lever",
+  "kula",
+  "rippling",
   "workable",
   "smartrecruiters",
   "jobvite",
@@ -14,8 +17,8 @@ export const PREFERRED_ATS_ORDER = [
   "dover",
 ];
 
-/** Secondary ATS we already scrape well (Lever, Kula, Rippling). */
-export const SECONDARY_ATS_ORDER = ["lever", "kula", "rippling"];
+/** Additional ATS probed after preferred list. */
+export const SECONDARY_ATS_ORDER = [];
 
 export function getPreferredProbes(atsPatterns) {
   return PREFERRED_ATS_ORDER.map((key) => atsPatterns[key]?.probe).filter(Boolean);

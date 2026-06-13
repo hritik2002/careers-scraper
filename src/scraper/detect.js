@@ -93,7 +93,9 @@ function extractWorkableAccount(parsed) {
 
 function extractRipplingBoard(parsed) {
   const parts = parsed.pathname.split("/").filter(Boolean);
-  return parts[0] || null;
+  const locale = /^[a-z]{2}(-[A-Z]{2})?$/;
+  const start = parts[0] && locale.test(parts[0]) ? 1 : 0;
+  return parts[start] || null;
 }
 
 function isGemCareersPage(parsed) {

@@ -8,12 +8,9 @@
     "start": "node src/index.js",
     "scrape": "node src/index.js --dry-run",
     "check-coverage": "node src/check-coverage.js",
-    "resolve-pages": "node scripts/add-vc-portfolio.js",
-    "generate-companies-md": "node scripts/generate-companies-md.js",
-    "probe-startup-ats": "node scripts/probe-startup-ats.js",
-    "add-vc-portfolio": "node scripts/add-vc-portfolio.js",
-    "validate-scrape-targets": "node scripts/validate-scrape-targets.js",
-    "fix-known-ats": "node scripts/fix-known-ats-urls.js",
+    "validate-careers": "node scripts/validate-careers.js",
+    "generate-careers-md": "node scripts/generate-careers-md.js",
+    "probe-rippling": "node scripts/probe-rippling.js",
     "test": "node --test"
   },
   "engines": {

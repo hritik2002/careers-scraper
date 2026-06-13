@@ -37,5 +37,4 @@ jobs:
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           CONFIG_PATH: config.example.json
-          CAREER_PAGES_FROM_JSON: "1"
         run: npm start

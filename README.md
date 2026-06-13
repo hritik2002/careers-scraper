@@ -1,14 +1,14 @@
 # Careers Scraper
 
-Scrape job listings from company career pages, score how well they match your resume with AI, and email you the best fits.
+Scrape job listings from career pages, score how well they match your resume with AI, and email you the best fits.
 
-**Browse 170+ Indian startup career pages:** see [`COMPANIES.md`](COMPANIES.md) — a curated, shareable list of VC portfolio and AI startup job boards (Greenhouse, Lever, Ashby, Kula, Rippling, and more).
+**Career page list:** [`careers.json`](careers.json) is the single source of truth — 82 curated URLs. See [`CAREERS.md`](CAREERS.md) for a browsable table.
 
 ## How it works
 
-1. **Scrape** — Pulls jobs from ATS boards and career pages listed in [`career-pages.json`](career-pages.json)
-2. **Match** — Sends each job + your resume to OpenAI and gets a fit score (0–5) with a brief explanation
-3. **Email** — If score > `minFitScore` (default **2.5/5**), sends you an email with the role, why you fit, and the apply link
+1. **Scrape** — Reads URLs from `careers.json` and pulls jobs from Greenhouse, Lever, Ashby, Rippling, Kula, and other ATS boards
+2. **Match** — Sends each job + your resume to OpenAI for a fit score (0–5)
+3. **Email** — Sends alerts for jobs above `minFitScore` (default 2.5)
 
 ## Quick start
 
@@ -18,40 +18,41 @@ cp config.example.json config.json
 cp resume.example.md resume.md
 cp .env.example .env
 
-# Edit resume.md and .env (OpenAI + SMTP)
-# Career pages load automatically from career-pages.json
+# Edit resume.md and .env
+# Career URLs load from careers.json automatically
 
-npm run scrape   # test scraping only
-npm start        # full run: scrape + match + email
+npm run scrape   # test scraping
+npm start        # scrape + match + email
 ```
 
-## Company career pages (public data)
+## careers.json (single source of truth)
 
-This repo includes a curated registry of **172 Indian startups and VC portfolio companies** (Titan Capital, Nexus, Elevation, Peak XV, AUM Ventures) plus AI/startup additions.
-
-| Resource | Description |
-|----------|-------------|
-| [`COMPANIES.md`](COMPANIES.md) | Human-readable table — verified, broken, and unresolved URLs |
-| [`career-pages.json`](career-pages.json) | Machine-readable company → URL mapping |
-| [`data/known-ats-urls.json`](data/known-ats-urls.json) | Manual ATS overrides — **contributions welcome** |
-| [`data/README.md`](data/README.md) | Data model and contribution guide |
-
-To refresh the public list after updating URLs:
-
-```bash
-npm run validate-scrape-targets   # test which URLs return jobs (~30 min)
-npm run generate-companies-md     # regenerate COMPANIES.md
-```
-
-## Configuration
-
-### `config.json` (local, gitignored)
-
-Personal runtime settings. Career page URLs are loaded from `career-pages.json` when `careerPages` is empty.
+All career page URLs live in one file:
 
 ```json
 {
-  "careerPages": [],
+  "updatedAt": "2026-06-13T...",
+  "pages": [
+    { "url": "https://boards.greenhouse.io/postman" },
+    { "url": "https://jobs.lever.co/meesho" }
+  ]
+}
+```
+
+After validation, entries include `status`, `jobs`, and `platform`:
+
+```json
+{ "url": "https://...", "status": "ok", "jobs": 16, "platform": "greenhouse" }
+```
+
+**To add a URL:** append to `pages` in `careers.json`, then run `npm run validate-careers`.
+
+## config.json (local, gitignored)
+
+Personal settings only — no URLs duplicated here:
+
+```json
+{
   "minFitScore": 2.5,
   "maxJobsPerPage": 50,
   "engineeringOnly": true,
@@ -65,84 +66,37 @@ Personal runtime settings. Career page URLs are loaded from `career-pages.json` 
 }
 ```
 
-**Supported ATS platforms:**
-
-| Platform | Example URL |
-|----------|-------------|
-| Greenhouse | `https://boards.greenhouse.io/company` |
-| Ashby | `https://jobs.ashbyhq.com/company` |
-| Lever | `https://jobs.lever.co/company` |
-| Kula | `https://careers.kula.ai/company?jobs=true` |
-| Rippling | `https://ats.rippling.com/company/jobs` |
-| Workable | `https://apply.workable.com/company/` |
-| SmartRecruiters | `https://jobs.smartrecruiters.com/company` |
-| Workday | `https://company.wd1.myworkdayjobs.com/en-US/Careers` |
-| Custom /careers | Fallback when no ATS board is found |
-
-Resolution tries **ATS boards first**, then scrapeable `/careers` sites.
-
-### `.env`
-
-| Variable | Description |
-|----------|-------------|
-| `OPENAI_API_KEY` | OpenAI API key for resume matching |
-| `SMTP_HOST` / `SMTP_PORT` | e.g. `smtp.gmail.com` / `587` |
-| `SMTP_USER` / `SMTP_PASS` | Email credentials (use Gmail App Password) |
-| `EMAIL_TO` | Where to send match alerts |
-
-## CLI flags
-
-```bash
-node src/index.js --dry-run    # Scrape only, no AI or email
-node src/index.js --no-email     # Scrape + score, skip email
-```
-
 ## npm scripts
 
 | Script | Purpose |
 |--------|---------|
 | `npm start` | Full pipeline: scrape + GPT match + email |
-| `npm run scrape` | Scrape only (`--dry-run`) |
-| `npm run check-coverage` | Report which companies have career URLs |
-| `npm run add-vc-portfolio` | Re-probe all companies for ATS boards |
-| `npm run fix-known-ats` | Apply `data/known-ats-urls.json` overrides |
-| `npm run validate-scrape-targets` | Test URLs; update validation + config |
-| `npm run generate-companies-md` | Regenerate `COMPANIES.md` |
-| `npm test` | Run tests |
+| `npm run scrape` | Scrape only |
+| `npm run check-coverage` | List all career URLs and status |
+| `npm run validate-careers` | Test each URL; update status in careers.json |
+| `npm run generate-careers-md` | Regenerate CAREERS.md |
+| `npm run probe-rippling -- Swiggy Zepto` | Find Rippling boards and add to careers.json |
 
-## Daily email (deploy)
+## Supported ATS platforms
 
-### GitHub Actions
+Greenhouse, Ashby, Lever, Kula, Rippling, Workable, SmartRecruiters, Workday, and generic `/careers` fallbacks.
 
-Push to GitHub and add secrets (`Settings → Secrets → Actions`):
+## GitHub Actions
 
-| Secret | Value |
-|--------|-------|
-| `RESUME_MD` | Full contents of your `resume.md` |
-| `OPENAI_API_KEY` | OpenAI API key |
-| `SMTP_*` / `EMAIL_*` | Email credentials |
-
-The workflow runs **daily at 8:00 AM IST**. Career pages load from tracked `career-pages.json` via `CAREER_PAGES_FROM_JSON=1`.
-
-### Local cron
-
-```bash
-30 2 * * * cd /path/to/careers-scraper && node src/index.js >> scraper.log 2>&1
-```
+Daily run at 8:00 AM IST. Loads URLs from tracked `careers.json`. Set secrets: `RESUME_MD`, `OPENAI_API_KEY`, `SMTP_*`, `EMAIL_*`.
 
 ## Project structure
 
 ```
-lib/                    # Shared modules (paths, slugs, company data)
-data/                   # Public company URL registry + sources
+careers.json          # Single source of truth — all career page URLs
 src/
-  index.js              # Main pipeline
-  config.js             # Config + career page loading
-  matcher.js            # OpenAI resume scoring
-  emailer.js            # HTML email builder
-  check-coverage.js     # Coverage report CLI
-  filters/              # Engineering + preference filters
-  scraper/              # ATS platform scrapers + generic fallback
-scripts/                # URL resolution and validation tools
-test/                   # Unit tests
+  index.js            # Main pipeline
+  config.js           # Loads careers.json + local config
+  scraper/            # ATS platform scrapers
+lib/
+  careers.js          # Read/write careers.json
+scripts/
+  validate-careers.js
+  generate-careers-md.js
+  ats-patterns.js     # ATS probe helpers (for probe-rippling)
 ```

@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import { getCareerUrls } from "../lib/companies.js";
+import { getCareerUrls } from "../lib/careers.js";
 import { paths } from "../lib/paths.js";
 
 dotenv.config();
@@ -20,9 +20,7 @@ function loadConfigFile() {
   if (existsSync(examplePath)) {
     return JSON.parse(readFileSync(examplePath, "utf-8"));
   }
-  throw new Error(
-    "Config not found. Copy config.example.json to config.json and add your career pages."
-  );
+  throw new Error("Config not found. Copy config.example.json to config.json.");
 }
 
 export function loadConfig() {
@@ -30,17 +28,11 @@ export function loadConfig() {
 
   let careerPages = config.careerPages;
   if (!Array.isArray(careerPages) || careerPages.length === 0) {
-    careerPages = getCareerUrls({ companiesOnly: true });
-  }
-  if (
-    (!Array.isArray(careerPages) || careerPages.length === 0) ||
-    process.env.CAREER_PAGES_FROM_JSON === "1"
-  ) {
     careerPages = getCareerUrls();
   }
 
   if (!Array.isArray(careerPages) || careerPages.length === 0) {
-    throw new Error("Config must include career pages (careerPages array or career-pages.json mapping).");
+    throw new Error("No career pages found. Add URLs to careers.json.");
   }
 
   return {
