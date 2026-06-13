@@ -9,7 +9,8 @@ import {
 
 const preferences = {
   enabled: true,
-  minYearsExperience: 0,
+  roles: ["software", "frontend", "fullstack", "backend"],
+  minYearsExperience: 2,
   maxYearsExperience: 4,
   locations: { india: true, remote: true },
 };
@@ -44,10 +45,37 @@ test("rejects staff engineer roles", () => {
   );
 });
 
-test("rejects pure backend roles", () => {
+test("accepts backend roles", () => {
   assert.equal(
     matchesRolePreference(
       { title: "Backend Engineer", location: "Remote" },
+      preferences
+    ),
+    true
+  );
+});
+
+test("rejects QA and testing roles", () => {
+  assert.equal(
+    matchesRolePreference(
+      { title: "QA Engineer", location: "Remote - India" },
+      preferences
+    ),
+    false
+  );
+  assert.equal(
+    matchesRolePreference(
+      { title: "SDET", location: "Bangalore, India" },
+      preferences
+    ),
+    false
+  );
+});
+
+test("rejects roles requiring more than 4 years", () => {
+  assert.equal(
+    matchesPreferences(
+      { title: "Software Engineer", location: "Remote", description: "5+ years experience required" },
       preferences
     ),
     false

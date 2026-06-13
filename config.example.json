@@ -1,16 +1,12 @@
 {
-  "careerPages": [
-    "https://boards.greenhouse.io/stripe",
-    "https://jobs.lever.co/spotify",
-    "https://jobs.ashbyhq.com/openai"
-  ],
+  "careerPages": [],
   "minFitScore": 2.5,
   "maxJobsPerPage": 50,
   "engineeringOnly": true,
   "preferences": {
     "enabled": true,
-    "roles": ["frontend", "fullstack"],
-    "minYearsExperience": 0,
+    "roles": ["software", "frontend", "fullstack", "backend"],
+    "minYearsExperience": 2,
     "maxYearsExperience": 4,
     "locations": {
       "india": true,

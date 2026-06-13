@@ -6,6 +6,8 @@ import { scrapeKula } from "./kula.js";
 import { scrapeWorkable } from "./workable.js";
 import { scrapeRippling } from "./rippling.js";
 import { scrapeGem } from "./gem.js";
+import { scrapeWorkday } from "./workday.js";
+import { scrapeSmartRecruiters } from "./smartrecruiters.js";
 import { scrapeGeneric } from "./generic.js";
 import { uniqueBy, sleep } from "../utils.js";
 
@@ -50,6 +52,11 @@ async function scrapeCareerPage(pageUrl, options) {
     case "rippling":
       if (!company) throw new Error("Could not detect Rippling board slug from URL");
       return scrapeRippling(company, pageUrl, options);
+    case "workday":
+      return scrapeWorkday(pageUrl, options);
+    case "smartrecruiters":
+      if (!company) throw new Error("Could not detect SmartRecruiters company slug from URL");
+      return scrapeSmartRecruiters(company, pageUrl, options);
     case "gem":
       return scrapeGem(pageUrl, options);
     default:

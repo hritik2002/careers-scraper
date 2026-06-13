@@ -59,7 +59,28 @@ export const ATS_PATTERNS = {
   smartrecruiters: {
     label: "SmartRecruiters",
     url: (slug) => `https://jobs.smartrecruiters.com/${slug}`,
-    probe: probeHttp200,
+    probe: probeSmartRecruiters,
+  },
+  jobvite: {
+    label: "Jobvite",
+    url: (slug) => `https://jobs.jobvite.com/${slug}/jobs/positions`,
+    probe: probeJobvite,
+  },
+  workday: {
+    label: "Workday",
+    url: (slug, site = "Careers", wd = "wd1") =>
+      `https://${slug}.${wd}.myworkdayjobs.com/en-US/${site}`,
+    probe: probeWorkday,
+  },
+  icims: {
+    label: "ICIMS",
+    url: (slug) => `https://careers-${slug}.icims.com/jobs/search?in_iframe=1`,
+    probe: probeIcims,
+  },
+  dover: {
+    label: "Dover",
+    url: (slug) => `https://app.dover.com/jobs/${slug}`,
+    probe: probeDover,
   },
   bamboohr: {
     label: "BambooHR",
@@ -84,9 +105,13 @@ export const GOOGLE_DORKS = [
   "site:boards.greenhouse.io {company}",
   "site:jobs.lever.co {company}",
   "site:apply.workable.com {company}",
+  "site:jobs.smartrecruiters.com {company}",
+  "site:jobs.jobvite.com {company}",
+  "site:myworkdayjobs.com {company}",
+  "site:icims.com/jobs {company}",
+  "site:app.dover.com/jobs {company}",
   "site:careers.kula.ai {company}",
   "site:ats.rippling.com {company}",
-  "site:freshteam.com/jobs {company}",
 ];
 
 export const VC_AGGREGATORS = [
@@ -209,6 +234,9 @@ async function probeFreshteam(slug) {
       signal: AbortSignal.timeout(8000),
     });
     if (!response.ok) return null;
+    const html = await response.text();
+    if (html.includes("invalid-domain") || html.includes("We couldn't find")) return null;
+    if (!html.match(/job|career|opening|position/i)) return null;
     return { platform: "freshteam", url, jobCount: null, scrapeNote: "SPA — needs Playwright" };
   } catch {
     return null;
@@ -221,6 +249,127 @@ async function probeSensehq(slug) {
 
 async function probeZohoRecruit(slug) {
   return probeHttp200(ATS_PATTERNS.zohorecruit.url(slug), "zohorecruit");
+}
+
+async function probeSmartRecruiters(slug) {
+  try {
+    const response = await fetch(
+      `https://api.smartrecruiters.com/v1/companies/${slug}/postings?limit=1`,
+      { headers: { "User-Agent": USER_AGENT }, signal: AbortSignal.timeout(8000) }
+    );
+    if (!response.ok) return null;
+    const data = await response.json();
+    if (!data.totalFound) return null;
+    return {
+      platform: "smartrecruiters",
+      url: ATS_PATTERNS.smartrecruiters.url(slug),
+      jobCount: data.totalFound,
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function probeJobvite(slug) {
+  const urls = [
+    `https://jobs.jobvite.com/${slug}/jobs/positions?format=json`,
+    `https://jobs.jobvite.com/${slug}/search?q=&format=json`,
+  ];
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, {
+        headers: { "User-Agent": USER_AGENT },
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!response.ok) continue;
+      const text = await response.text();
+      if (!text.trim()) continue;
+      const data = JSON.parse(text);
+      const count = data.requisitions?.length ?? data.jobs?.length ?? data.total ?? 0;
+      if (count > 0) {
+        return {
+          platform: "jobvite",
+          url: ATS_PATTERNS.jobvite.url(slug),
+          jobCount: count,
+        };
+      }
+    } catch {
+      /* try next */
+    }
+  }
+  return null;
+}
+
+async function probeWorkday(slug) {
+  for (const wd of ["wd1", "wd3", "wd5", "wd12"]) {
+    for (const site of ["Careers", "External", "jobs", "JobSite"]) {
+      const host = `https://${slug}.${wd}.myworkdayjobs.com`;
+      const api = `${host}/wday/cxs/${slug}/${site}/jobs`;
+      try {
+        const response = await fetch(api, {
+          method: "POST",
+          headers: { "User-Agent": USER_AGENT, "Content-Type": "application/json" },
+          body: JSON.stringify({ limit: 1, offset: 0, searchText: "" }),
+          signal: AbortSignal.timeout(8000),
+        });
+        if (!response.ok) continue;
+        const data = await response.json();
+        if (!data.total) continue;
+        return {
+          platform: "workday",
+          url: `${host}/en-US/${site}`,
+          jobCount: data.total,
+          workdayMeta: { tenant: slug, site, wd },
+        };
+      } catch {
+        /* try next */
+      }
+    }
+  }
+  return null;
+}
+
+async function probeIcims(slug) {
+  const urls = [
+    `https://careers-${slug}.icims.com/jobs/search?in_iframe=1`,
+    `https://${slug}.icims.com/jobs/search?in_iframe=1`,
+  ];
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, {
+        headers: { "User-Agent": USER_AGENT },
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!response.ok) continue;
+      const html = await response.text();
+      if (html.includes("iCIMS_Error") || html.includes("Page Not Found")) continue;
+      const matches = html.match(/iCIMS_JobsTable|jobs\/\d+|jobId=/gi);
+      if (matches?.length) {
+        return { platform: "icims", url, jobCount: matches.length };
+      }
+    } catch {
+      /* try next */
+    }
+  }
+  return null;
+}
+
+async function probeDover(slug) {
+  const url = ATS_PATTERNS.dover.url(slug);
+  try {
+    const response = await fetch(url, {
+      headers: { "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!response.ok) return null;
+    const html = await response.text();
+    if (!html.match(/job|opening|position|career/i)) return null;
+    if (html.includes("404") && html.includes("not found")) return null;
+    const count = (html.match(/job-card|JobPost|opening/gi) || []).length;
+    return { platform: "dover", url, jobCount: count || 1 };
+  } catch {
+    return null;
+  }
 }
 
 async function probeHttp200(url, platform = "unknown") {
@@ -236,23 +385,25 @@ async function probeHttp200(url, platform = "unknown") {
   }
 }
 
-/** Probe all ATS platforms for a slug; returns first match with jobs (or freshteam SPA). */
+/** Probe preferred + secondary ATS platforms for a slug. */
 export async function probeAllPlatforms(slug) {
   const probes = [
     probeAshby,
     probeGreenhouse,
-    probeLever,
     probeWorkable,
+    probeSmartRecruiters,
+    probeJobvite,
+    probeWorkday,
+    probeIcims,
+    probeDover,
+    probeLever,
     probeKula,
     probeRippling,
-    probeFreshteam,
-    (s) => probeSensehq(s),
-    (s) => probeZohoRecruit(s),
   ];
 
   for (const probe of probes) {
     const result = await probe(slug);
-    if (result) return { ...result, slug };
+    if (result && result.jobCount !== 0) return { ...result, slug };
   }
 
   return null;

@@ -30,10 +30,36 @@ export function detectPlatform(url) {
   }
 
   if (parsed.hostname.includes("myworkdayjobs.com")) {
-    return { platform: "workday", company: parsed.pathname.split("/").filter(Boolean)[0] || null };
+    const tenant = parsed.hostname.split(".")[0];
+    return { platform: "workday", company: tenant || null };
+  }
+
+  if (parsed.hostname.includes("smartrecruiters.com")) {
+    const parts = parsed.pathname.split("/").filter(Boolean);
+    return { platform: "smartrecruiters", company: parts[0] || null };
+  }
+
+  if (parsed.hostname.includes("jobvite.com")) {
+    const parts = parsed.pathname.split("/").filter(Boolean);
+    return { platform: "jobvite", company: parts[0] || null };
+  }
+
+  if (parsed.hostname.includes("icims.com")) {
+    return { platform: "icims", company: extractIcimsCompany(parsed) };
+  }
+
+  if (parsed.hostname.includes("dover.com") || parsed.hostname.includes("dover.io")) {
+    const parts = parsed.pathname.split("/").filter(Boolean);
+    const jobsIdx = parts.indexOf("jobs");
+    return { platform: "dover", company: jobsIdx >= 0 ? parts[jobsIdx + 1] : parts[0] || null };
   }
 
   return { platform: "generic", company: parsed.hostname };
+}
+
+function extractIcimsCompany(parsed) {
+  const host = parsed.hostname.replace(/^careers-/, "").replace(/\.icims\.com$/, "");
+  return host || null;
 }
 
 function extractGreenhouseCompany(parsed) {

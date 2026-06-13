@@ -2,38 +2,41 @@ import { readFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
+import { getCareerUrls } from "../lib/companies.js";
+import { paths } from "../lib/paths.js";
 
 dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 
-function loadCareerPagesFromJson() {
-  const pagesPath = resolve(root, "career-pages.json");
-  if (!existsSync(pagesPath)) return [];
+function loadConfigFile() {
+  const configPath = process.env.CONFIG_PATH || paths.config;
+  const examplePath = paths.configExample;
 
-  const data = JSON.parse(readFileSync(pagesPath, "utf-8"));
-  return [...new Set(Object.values(data.mapping || {}))];
+  if (existsSync(configPath)) {
+    return JSON.parse(readFileSync(configPath, "utf-8"));
+  }
+  if (existsSync(examplePath)) {
+    return JSON.parse(readFileSync(examplePath, "utf-8"));
+  }
+  throw new Error(
+    "Config not found. Copy config.example.json to config.json and add your career pages."
+  );
 }
 
 export function loadConfig() {
-  const configPath = process.env.CONFIG_PATH || resolve(root, "config.json");
-  const examplePath = resolve(root, "config.example.json");
-
-  let config;
-  if (existsSync(configPath)) {
-    config = JSON.parse(readFileSync(configPath, "utf-8"));
-  } else if (existsSync(examplePath)) {
-    config = JSON.parse(readFileSync(examplePath, "utf-8"));
-  } else {
-    throw new Error(
-      "Config not found. Copy config.example.json to config.json and add your career pages."
-    );
-  }
+  const config = loadConfigFile();
 
   let careerPages = config.careerPages;
-  if (!Array.isArray(careerPages) || careerPages.length === 0 || process.env.CAREER_PAGES_FROM_JSON === "1") {
-    careerPages = loadCareerPagesFromJson();
+  if (!Array.isArray(careerPages) || careerPages.length === 0) {
+    careerPages = getCareerUrls({ companiesOnly: true });
+  }
+  if (
+    (!Array.isArray(careerPages) || careerPages.length === 0) ||
+    process.env.CAREER_PAGES_FROM_JSON === "1"
+  ) {
+    careerPages = getCareerUrls();
   }
 
   if (!Array.isArray(careerPages) || careerPages.length === 0) {

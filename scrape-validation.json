@@ -1,0 +1,867 @@
+{
+  "checkedAt": "2026-06-13T10:42:30.355Z",
+  "working": [
+    {
+      "company": "Apollo.io",
+      "url": "https://boards.greenhouse.io/apolloio",
+      "jobs": 5
+    },
+    {
+      "company": "AppsForBharat",
+      "url": "https://careers.kula.ai/appsforbharat?jobs=true",
+      "jobs": 5
+    },
+    {
+      "company": "Atomicwork",
+      "url": "https://boards.greenhouse.io/atomicwork",
+      "jobs": 5
+    },
+    {
+      "company": "Avoca",
+      "url": "https://jobs.ashbyhq.com/avoca",
+      "jobs": 5
+    },
+    {
+      "company": "Axio",
+      "url": "https://ats.rippling.com/axio/jobs",
+      "jobs": 2
+    },
+    {
+      "company": "Azimuth AI",
+      "url": "https://azimuth-ai.com/career/",
+      "jobs": 1
+    },
+    {
+      "company": "Belong",
+      "url": "https://jobs.lever.co/belong",
+      "jobs": 5
+    },
+    {
+      "company": "Bright Money",
+      "url": "https://careers.kula.ai/brightmoney?jobs=true",
+      "jobs": 5
+    },
+    {
+      "company": "Comet",
+      "url": "https://job-boards.greenhouse.io/comet",
+      "jobs": 5
+    },
+    {
+      "company": "Composio",
+      "url": "https://jobs.ashbyhq.com/composio",
+      "jobs": 5
+    },
+    {
+      "company": "Daloopa",
+      "url": "https://ats.rippling.com/daloopa/jobs",
+      "jobs": 5
+    },
+    {
+      "company": "Finster AI",
+      "url": "https://boards.greenhouse.io/finsterai",
+      "jobs": 5
+    },
+    {
+      "company": "Firecrawl",
+      "url": "https://jobs.ashbyhq.com/firecrawl",
+      "jobs": 5
+    },
+    {
+      "company": "Flint",
+      "url": "https://jobs.ashbyhq.com/flint",
+      "jobs": 5
+    },
+    {
+      "company": "FurtherAI",
+      "url": "https://jobs.ashbyhq.com/furtherai",
+      "jobs": 5
+    },
+    {
+      "company": "Gumloop",
+      "url": "https://jobs.ashbyhq.com/gumloop",
+      "jobs": 5
+    },
+    {
+      "company": "Helogen",
+      "url": "https://jobs.ashbyhq.com/helogen",
+      "jobs": 4
+    },
+    {
+      "company": "Latent AI",
+      "url": "https://jobs.ashbyhq.com/latent",
+      "jobs": 5
+    },
+    {
+      "company": "Loop",
+      "url": "https://job-boards.greenhouse.io/loop",
+      "jobs": 5
+    },
+    {
+      "company": "MarqVision",
+      "url": "https://boards.greenhouse.io/marqvision",
+      "jobs": 5
+    },
+    {
+      "company": "Mem0",
+      "url": "https://jobs.ashbyhq.com/mem0",
+      "jobs": 5
+    },
+    {
+      "company": "Metaforms",
+      "url": "https://jobs.ashbyhq.com/metaforms",
+      "jobs": 5
+    },
+    {
+      "company": "Neysa",
+      "url": "https://boards.greenhouse.io/neysanetwork",
+      "jobs": 5
+    },
+    {
+      "company": "OpenObserve",
+      "url": "https://jobs.ashbyhq.com/openobserve-careers",
+      "jobs": 5
+    },
+    {
+      "company": "Orkes",
+      "url": "https://boards.greenhouse.io/orkes",
+      "jobs": 5
+    },
+    {
+      "company": "Postman",
+      "url": "https://boards.greenhouse.io/postman",
+      "jobs": 5
+    },
+    {
+      "company": "Razorpay",
+      "url": "https://razorpay.com/jobs/",
+      "jobs": 5
+    },
+    {
+      "company": "Relevance AI",
+      "url": "https://jobs.ashbyhq.com/relevanceai",
+      "jobs": 5
+    },
+    {
+      "company": "Rocketlane",
+      "url": "https://careers.kula.ai/rocketlane?jobs=true",
+      "jobs": 5
+    },
+    {
+      "company": "Sarvam AI",
+      "url": "https://jobs.ashbyhq.com/sarvam",
+      "jobs": 5
+    },
+    {
+      "company": "Supabase",
+      "url": "https://jobs.ashbyhq.com/supabase",
+      "jobs": 5
+    },
+    {
+      "company": "TensorWave",
+      "url": "https://jobs.ashbyhq.com/tensorwave",
+      "jobs": 5
+    },
+    {
+      "company": "TrueFoundry",
+      "url": "https://boards.greenhouse.io/truefoundry",
+      "jobs": 5
+    },
+    {
+      "company": "Vapi",
+      "url": "https://jobs.ashbyhq.com/vapi",
+      "jobs": 5
+    }
+  ],
+  "broken": [
+    {
+      "company": "Acko",
+      "url": "https://www.acko.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Adopt AI",
+      "url": "https://adoptai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Airblack",
+      "url": "https://airblack.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Alaan",
+      "url": "https://alaan.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Alle",
+      "url": "https://alle.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Atlys",
+      "url": "https://atlys.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "AutoNinja",
+      "url": "https://autoninja.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Awfis",
+      "url": "https://www.awfis.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Aye Finance",
+      "url": "https://ayefinance.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Better Auth",
+      "url": "https://betterauth.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "BlackBuck",
+      "url": "https://www.blackbuck.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Bluestone",
+      "url": "https://www.bluestone.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Bobble AI",
+      "url": "https://bobbleai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Boxs",
+      "url": "https://boxs.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Caseflood.ai",
+      "url": "https://casefloodai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Cellcolabs",
+      "url": "https://cellcolabs.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Chaayos",
+      "url": "https://chaayos.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Chaos Genius",
+      "url": "https://chaosgenius.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "CityMall",
+      "url": "https://citymall.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Clear",
+      "url": "https://clear.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "ClearFeed",
+      "url": "https://clearfeed.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Cognida.ai",
+      "url": "https://www.cognida.ai/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Companion Labs",
+      "url": "https://companionlabs.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Convin",
+      "url": "https://www.convin.ai/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Cosmoserve Space",
+      "url": "https://cosmoservespace.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Covvalent",
+      "url": "https://covvalent.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Credgenics",
+      "url": "https://www.credgenics.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "CrowdAnalytix",
+      "url": "https://crowdanalytix.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Curefoods",
+      "url": "https://www.curefoods.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Curelink",
+      "url": "https://curelink.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "DAOLens",
+      "url": "https://daolens.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Delhivery",
+      "url": "https://www.delhivery.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Druva",
+      "url": "https://www.druva.com/company/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Esports XO",
+      "url": "https://esportsxo.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Exaforce",
+      "url": "https://exaforce.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Fareye",
+      "url": "https://www.fareye.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Fenix Technologies",
+      "url": "https://fenixtechnologies.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Finarkein",
+      "url": "https://finarkein.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Fingerprint",
+      "url": "https://fingerprint.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "FirstSense",
+      "url": "https://firstsense.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Freshworks",
+      "url": "https://www.freshworks.com/company/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Giga",
+      "url": "https://giga.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Gimbal Space",
+      "url": "https://gimbalspace.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Giva",
+      "url": "https://www.giva.co/pages/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "GlobalFair",
+      "url": "https://globalfair.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Go Digit",
+      "url": "https://www.godigit.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "GoMechanic",
+      "url": "https://gomechanic.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Goodera",
+      "url": "https://goodera.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "GreyLabs AI",
+      "url": "https://greylabsai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "GrowthBook",
+      "url": "https://growthbook.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Groww",
+      "url": "https://groww.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Heizen",
+      "url": "https://heizen.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "HyperTrack",
+      "url": "https://hypertrack.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Induced AI",
+      "url": "https://inducedai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Infra.Market",
+      "url": "https://www.inframarket.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Inner Fit",
+      "url": "https://innerfit.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Investmint",
+      "url": "https://investmint.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "ixigo",
+      "url": "https://www.ixigo.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Jify",
+      "url": "https://jify.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Karban",
+      "url": "https://karban.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Kello",
+      "url": "https://kello.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Kindlife",
+      "url": "https://kindlife.in/pages/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Krayonnz",
+      "url": "https://krayonnz.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Languify",
+      "url": "https://languify.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "LemmeBe",
+      "url": "https://lemmebe.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Linkrunner",
+      "url": "https://linkrunner.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Llumo",
+      "url": "https://llumo.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Mamaearth",
+      "url": "https://mamaearth.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Meesho",
+      "url": "https://meesho.io/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Memfold AI",
+      "url": "https://memfoldai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "MinIO",
+      "url": "https://min.io/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Mitigata",
+      "url": "https://mitigata.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Mobikwik",
+      "url": "https://www.mobikwik.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Morphing Machines",
+      "url": "https://morphingmachines.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Mudrex",
+      "url": "https://mudrex.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Murf.ai",
+      "url": "https://murf.ai/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Myways.ai",
+      "url": "https://mywaysai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Nat Habit",
+      "url": "https://nathabit.in/pages/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Neuron7.ai",
+      "url": "https://neuron7.ai/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Neurowyzr",
+      "url": "https://neurowyzr.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Newme",
+      "url": "https://newme.asia/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "NoBroker",
+      "url": "https://www.nobroker.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Obot AI",
+      "url": "https://obotai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Observe.ai",
+      "url": "https://www.observe.ai/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "OfBusiness",
+      "url": "https://ofbusiness.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Ola",
+      "url": "https://ola.careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Pine Labs",
+      "url": "https://www.pinelabs.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Plotline",
+      "url": "https://plotline.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Portkey.ai",
+      "url": "https://portkeyai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Presolv360",
+      "url": "https://presolv360.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "PromptQL",
+      "url": "https://promptql.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Pubmatic",
+      "url": "https://pubmatic.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Pulse Energy",
+      "url": "https://pulseenergy.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Rapido",
+      "url": "https://www.rapido.bike/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Requestly",
+      "url": "https://requestly.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Round1",
+      "url": "https://round1.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Sanyark Space",
+      "url": "https://sanyarkspace.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Scapia",
+      "url": "https://scapia.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Second Ocean",
+      "url": "https://secondocean.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Seekho",
+      "url": "https://seekho.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Sharang Shakti",
+      "url": "https://sharangshakti.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "ShareChat",
+      "url": "https://sharechat.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Simplismart",
+      "url": "https://simplismart.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Skydo",
+      "url": "https://skydo.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Skyroot Aerospace",
+      "url": "https://skyroot.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Smiles.ai",
+      "url": "https://smilesai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Snabbit",
+      "url": "https://snabbit.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Sookti AI",
+      "url": "https://sooktiai.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Spinny",
+      "url": "https://www.spinny.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "SquareX",
+      "url": "https://squarex.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Swiggy",
+      "url": "https://careers.swiggy.com/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Swirepay",
+      "url": "https://swirepay.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Swish",
+      "url": "https://swish.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Synthio Labs",
+      "url": "https://www.synthiolabs.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "SynthioLabs",
+      "url": "https://synthiolabs.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Tazapay",
+      "url": "https://tazapay.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "True Diamond",
+      "url": "https://truediamond.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Truecaller",
+      "url": "https://www.truecaller.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Turtlemint",
+      "url": "https://www.turtlemint.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Ultrahuman",
+      "url": "https://www.ultrahuman.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Unacademy",
+      "url": "https://unacademy.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Unicommerce",
+      "url": "https://unicommerce.com/careers/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "UnifyApps",
+      "url": "https://unifyapps.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Uniqus Consultech",
+      "url": "https://uniqusconsultech.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Urban Company",
+      "url": "https://careers.urbancompany.com/",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Vahak",
+      "url": "https://www.vahak.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Validus Fintech",
+      "url": "https://validusfintech.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Vegrow",
+      "url": "https://www.vegrow.in/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "VenWiz",
+      "url": "https://venwiz.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Wakefit",
+      "url": "https://www.wakefit.co/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "XpressBees",
+      "url": "https://www.xpressbees.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "YouShd",
+      "url": "https://youshd.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Zepto",
+      "url": "https://www.zeptonow.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "ZFunds",
+      "url": "https://zfunds.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Zomato",
+      "url": "https://www.zomato.com/careers",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Zoop",
+      "url": "https://zoop.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Zoplar",
+      "url": "https://zoplar.freshteam.com/jobs",
+      "reason": "0 jobs"
+    },
+    {
+      "company": "Zorro",
+      "url": "https://zorro.freshteam.com/jobs",
+      "reason": "0 jobs"
+    }
+  ]
+}

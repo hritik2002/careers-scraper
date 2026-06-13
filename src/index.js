@@ -2,7 +2,7 @@ import { loadConfig, loadResume, loadEnv } from "./config.js";
 import { scrapeCareerPages } from "./scraper/index.js";
 import { matchJobs } from "./matcher.js";
 import { createTransporter, sendMatchEmail } from "./emailer.js";
-import { filterByPreferences } from "./filters/preferences.js";
+import { filterByPreferences, formatPreferencesSummary } from "./filters/preferences.js";
 
 const isDryRun = process.argv.includes("--dry-run");
 const skipEmail = process.argv.includes("--no-email");
@@ -19,8 +19,7 @@ async function main() {
   console.log(`Fit threshold:  > ${minFitScore}/5`);
   console.log(`Engineering only: ${config.engineeringOnly ? "yes" : "no"}`);
   if (config.preferences?.enabled !== false) {
-    const yoe = `${config.preferences.minYearsExperience ?? 0}–${config.preferences.maxYearsExperience ?? 4} YOE`;
-    console.log(`Preferences:    frontend/full-stack · ${yoe} · India or remote`);
+    console.log(`Preferences:    ${formatPreferencesSummary(config.preferences)}`);
   }
   console.log();
 
@@ -34,7 +33,7 @@ async function main() {
   const preferredJobs =
     config.preferences?.enabled === false ? jobs : filterByPreferences(jobs, config.preferences);
   if (config.preferences?.enabled !== false) {
-    console.log(`After preferences:  ${preferredJobs.length} job(s) (frontend/full-stack · 0–4 YOE · India/remote)\n`);
+    console.log(`After preferences:  ${preferredJobs.length} job(s) (${formatPreferencesSummary(config.preferences)})\n`);
   } else {
     console.log();
   }
