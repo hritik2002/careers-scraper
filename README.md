@@ -1,5 +1,9 @@
 # Careers Scraper
 
+This is how the email looks like every morning from this repo:
+<img width="1104" height="625" alt="Screenshot 2026-06-15 at 2 45 36 AM" src="https://github.com/user-attachments/assets/2fc3ee34-f768-459d-ab7f-95b9e18e545a" />
+
+
 Scrape job listings from career pages, score how well they match your resume with AI, and email you the best fits.
 
 **Career page list:** [`careers.json`](careers.json) is the single source of truth — 82 curated URLs. See [`CAREERS.md`](CAREERS.md) for a browsable table.
