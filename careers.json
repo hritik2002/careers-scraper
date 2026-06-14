@@ -1,5 +1,4 @@
 {
-  "updatedAt": "2026-06-13T12:04:16.461Z",
   "pages": [
     {
       "url": "https://agnikul.in/careers"
@@ -125,7 +124,15 @@
       "url": "https://job-boards.greenhouse.io/truecaller"
     },
     {
+      "url": "https://jobs.ashbyhq.com/aiprise",
+      "status": "unverified"
+    },
+    {
       "url": "https://jobs.ashbyhq.com/avoca"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/clueso",
+      "status": "unverified"
     },
     {
       "url": "https://jobs.ashbyhq.com/composio"
@@ -168,6 +175,10 @@
     },
     {
       "url": "https://jobs.ashbyhq.com/sarvam"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/signoz",
+      "status": "unverified"
     },
     {
       "url": "https://jobs.ashbyhq.com/supabase"
@@ -245,7 +256,28 @@
       "url": "https://www.vectorbuilder.com/careers.html"
     },
     {
+      "url": "https://www.ycombinator.com/companies/codingal/jobs",
+      "status": "unverified"
+    },
+    {
+      "url": "https://www.ycombinator.com/companies/cyble/jobs",
+      "status": "unverified"
+    },
+    {
       "url": "https://www.ycombinator.com/companies/growthbook/jobs"
+    },
+    {
+      "url": "https://www.ycombinator.com/companies/noora-health/jobs",
+      "status": "unverified"
+    },
+    {
+      "url": "https://www.ycombinator.com/companies/triomics/jobs",
+      "status": "unverified"
+    },
+    {
+      "url": "https://www.ycombinator.com/companies/vahan/jobs",
+      "status": "unverified"
     }
-  ]
+  ],
+  "updatedAt": "2026-06-13T12:32:27.967Z"
 }

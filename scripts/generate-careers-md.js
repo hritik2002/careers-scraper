@@ -31,7 +31,7 @@ function main() {
   const md = [
     "# Career Pages",
     "",
-    "Single source of truth: [`careers.json`](careers.json) — **82 curated career page URLs** for Indian startups and deep-tech companies.",
+    `Single source of truth: [\`careers.json\`](careers.json) — **${registry.length} curated career page URLs** for Indian startups and deep-tech companies.`,
     "",
     "Add a URL to `careers.json` and run the scraper. No separate company registry.",
     "",

@@ -2,8 +2,8 @@ name: Daily job matches
 
 on:
   schedule:
-    # 8:00 AM IST (UTC+5:30) = 02:30 UTC
-    - cron: "30 2 * * *"
+    # 10:00 AM IST (UTC+5:30) = 04:30 UTC
+    - cron: "30 4 * * *"
   workflow_dispatch:
 
 jobs:

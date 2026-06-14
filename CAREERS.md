@@ -1,13 +1,13 @@
 # Career Pages
 
-Single source of truth: [`careers.json`](careers.json) — **82 curated career page URLs** for Indian startups and deep-tech companies.
+Single source of truth: [`careers.json`](careers.json) — **90 curated career page URLs** for Indian startups and deep-tech companies.
 
 Add a URL to `careers.json` and run the scraper. No separate company registry.
 
 - **Working:** 0
-- **Unverified:** 82
+- **Unverified:** 90
 - **Broken / empty:** 0
-- **Total:** 82
+- **Total:** 90
 
 
 ## Unverified
@@ -57,7 +57,9 @@ Not yet validated — run `npm run validate-careers`.
 | greenhouse | [https://job-boards.greenhouse.io/loop](https://job-boards.greenhouse.io/loop) | unverified | — |
 | greenhouse | [https://job-boards.greenhouse.io/pine](https://job-boards.greenhouse.io/pine) | unverified | — |
 | greenhouse | [https://job-boards.greenhouse.io/truecaller](https://job-boards.greenhouse.io/truecaller) | unverified | — |
+| ashby | [https://jobs.ashbyhq.com/aiprise](https://jobs.ashbyhq.com/aiprise) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/avoca](https://jobs.ashbyhq.com/avoca) | unverified | — |
+| ashby | [https://jobs.ashbyhq.com/clueso](https://jobs.ashbyhq.com/clueso) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/composio](https://jobs.ashbyhq.com/composio) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/firecrawl](https://jobs.ashbyhq.com/firecrawl) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/flint](https://jobs.ashbyhq.com/flint) | unverified | — |
@@ -72,6 +74,7 @@ Not yet validated — run `npm run validate-careers`.
 | ashby | [https://jobs.ashbyhq.com/pulse](https://jobs.ashbyhq.com/pulse) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/relevanceai](https://jobs.ashbyhq.com/relevanceai) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/sarvam](https://jobs.ashbyhq.com/sarvam) | unverified | — |
+| ashby | [https://jobs.ashbyhq.com/signoz](https://jobs.ashbyhq.com/signoz) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/supabase](https://jobs.ashbyhq.com/supabase) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/tensorwave](https://jobs.ashbyhq.com/tensorwave) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/vapi](https://jobs.ashbyhq.com/vapi) | unverified | — |
@@ -97,7 +100,12 @@ Not yet validated — run `npm run validate-careers`.
 | gem | [https://www.terraa.tech/careers](https://www.terraa.tech/careers) | unverified | — |
 | gem | [https://www.unboxrobotics.com/careers](https://www.unboxrobotics.com/careers) | unverified | — |
 | gem | [https://www.vectorbuilder.com/careers.html](https://www.vectorbuilder.com/careers.html) | unverified | — |
+| generic | [https://www.ycombinator.com/companies/codingal/jobs](https://www.ycombinator.com/companies/codingal/jobs) | unverified | — |
+| generic | [https://www.ycombinator.com/companies/cyble/jobs](https://www.ycombinator.com/companies/cyble/jobs) | unverified | — |
 | generic | [https://www.ycombinator.com/companies/growthbook/jobs](https://www.ycombinator.com/companies/growthbook/jobs) | unverified | — |
+| generic | [https://www.ycombinator.com/companies/noora-health/jobs](https://www.ycombinator.com/companies/noora-health/jobs) | unverified | — |
+| generic | [https://www.ycombinator.com/companies/triomics/jobs](https://www.ycombinator.com/companies/triomics/jobs) | unverified | — |
+| generic | [https://www.ycombinator.com/companies/vahan/jobs](https://www.ycombinator.com/companies/vahan/jobs) | unverified | — |
 
 
 ---

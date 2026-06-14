@@ -81,9 +81,45 @@ Personal settings only — no URLs duplicated here:
 
 Greenhouse, Ashby, Lever, Kula, Rippling, Workable, SmartRecruiters, Workday, and generic `/careers` fallbacks.
 
-## GitHub Actions
+## GitHub Actions (recommended)
 
-Daily run at 8:00 AM IST. Loads URLs from tracked `careers.json`. Set secrets: `RESUME_MD`, `OPENAI_API_KEY`, `SMTP_*`, `EMAIL_*`.
+Runs daily at **10:00 AM IST** via [`.github/workflows/daily.yml`](.github/workflows/daily.yml). Career URLs load from tracked `careers.json`; preferences from `config.example.json`.
+
+### 1. Add repository secrets
+
+GitHub → your repo → **Settings → Secrets and variables → Actions → New repository secret**
+
+| Secret | Value |
+|--------|-------|
+| `RESUME_MD` | Full contents of your `resume.md` |
+| `OPENAI_API_KEY` | OpenAI API key |
+| `SMTP_HOST` | e.g. `smtp.gmail.com` |
+| `SMTP_PORT` | e.g. `587` |
+| `SMTP_USER` | Your email |
+| `SMTP_PASS` | Gmail App Password (not your login password) |
+| `EMAIL_FROM` | Sender address |
+| `EMAIL_TO` | Where to receive match emails |
+
+Optional variable (**Settings → Secrets and variables → Actions → Variables**): `OPENAI_MODEL` (default `gpt-4o-mini`).
+
+### 2. Enable Actions
+
+**Settings → Actions → General** → allow actions for the repository.
+
+### 3. Test manually
+
+**Actions → Daily job matches → Run workflow**. Check the run log; you should get an email if matches are found.
+
+Scheduled runs only work on the **default branch** (`master`/`main`) and may be delayed by a few minutes on free tier.
+
+### Local cron (alternative)
+
+If you prefer running on your machine instead of GitHub:
+
+```bash
+# 10:00 AM IST daily
+30 4 * * * cd /path/to/careers-scraper && /usr/local/bin/node src/index.js >> scraper.log 2>&1
+```
 
 ## Project structure
 
