@@ -1,13 +1,13 @@
 # Career Pages
 
-Single source of truth: [`careers.json`](careers.json) — **90 curated career page URLs** for Indian startups and deep-tech companies.
+Single source of truth: [`careers.json`](careers.json) — **96 curated career page URLs** for Indian startups and deep-tech companies.
 
 Add a URL to `careers.json` and run the scraper. No separate company registry.
 
 - **Working:** 0
-- **Unverified:** 90
+- **Unverified:** 96
 - **Broken / empty:** 0
-- **Total:** 90
+- **Total:** 96
 
 
 ## Unverified
@@ -18,6 +18,7 @@ Not yet validated — run `npm run validate-careers`.
 | --- | --- | --- | --- |
 | gem | [https://agnikul.in/careers](https://agnikul.in/careers) | unverified | — |
 | gem | [https://aidash.com/careers](https://aidash.com/careers) | unverified | — |
+| workable | [https://apply.workable.com/apna/](https://apply.workable.com/apna/) | unverified | — |
 | rippling | [https://ats.rippling.com/alaan-careers/jobs](https://ats.rippling.com/alaan-careers/jobs) | unverified | — |
 | rippling | [https://ats.rippling.com/axio/jobs](https://ats.rippling.com/axio/jobs) | unverified | — |
 | rippling | [https://ats.rippling.com/daloopa/jobs](https://ats.rippling.com/daloopa/jobs) | unverified | — |
@@ -56,6 +57,7 @@ Not yet validated — run `npm run validate-careers`.
 | greenhouse | [https://job-boards.greenhouse.io/comet](https://job-boards.greenhouse.io/comet) | unverified | — |
 | greenhouse | [https://job-boards.greenhouse.io/loop](https://job-boards.greenhouse.io/loop) | unverified | — |
 | greenhouse | [https://job-boards.greenhouse.io/pine](https://job-boards.greenhouse.io/pine) | unverified | — |
+| greenhouse | [https://job-boards.greenhouse.io/slice](https://job-boards.greenhouse.io/slice) | unverified | — |
 | greenhouse | [https://job-boards.greenhouse.io/truecaller](https://job-boards.greenhouse.io/truecaller) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/aiprise](https://jobs.ashbyhq.com/aiprise) | unverified | — |
 | ashby | [https://jobs.ashbyhq.com/avoca](https://jobs.ashbyhq.com/avoca) | unverified | — |
@@ -82,6 +84,10 @@ Not yet validated — run `npm run validate-careers`.
 | lever | [https://jobs.lever.co/meesho](https://jobs.lever.co/meesho) | unverified | — |
 | lever | [https://jobs.lever.co/neuron7](https://jobs.lever.co/neuron7) | unverified | — |
 | smartrecruiters | [https://jobs.smartrecruiters.com/freshworks](https://jobs.smartrecruiters.com/freshworks) | unverified | — |
+| smartrecruiters | [https://jobs.smartrecruiters.com/nobroker](https://jobs.smartrecruiters.com/nobroker) | unverified | — |
+| smartrecruiters | [https://jobs.smartrecruiters.com/turtlemint](https://jobs.smartrecruiters.com/turtlemint) | unverified | — |
+| smartrecruiters | [https://jobs.smartrecruiters.com/unacademy](https://jobs.smartrecruiters.com/unacademy) | unverified | — |
+| smartrecruiters | [https://jobs.smartrecruiters.com/whatfix](https://jobs.smartrecruiters.com/whatfix) | unverified | — |
 | gem | [https://latticeflow.ai/careers](https://latticeflow.ai/careers) | unverified | — |
 | gem | [https://locus.sh/careers](https://locus.sh/careers) | unverified | — |
 | gem | [https://pathai.com/careers](https://pathai.com/careers) | unverified | — |

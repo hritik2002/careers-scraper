@@ -64,6 +64,9 @@
       "url": "https://boards.greenhouse.io/postman"
     },
     {
+      "url": "https://job-boards.greenhouse.io/slice"
+    },
+    {
       "url": "https://boards.greenhouse.io/pubmatic"
     },
     {
@@ -193,6 +196,9 @@
       "url": "https://jobs.lever.co/belong"
     },
     {
+      "url": "https://apply.workable.com/apna/"
+    },
+    {
       "url": "https://jobs.lever.co/meesho"
     },
     {
@@ -200,6 +206,18 @@
     },
     {
       "url": "https://jobs.smartrecruiters.com/freshworks"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/nobroker"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/turtlemint"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/unacademy"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/whatfix"
     },
     {
       "url": "https://latticeflow.ai/careers"
