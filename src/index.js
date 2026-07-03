@@ -3,9 +3,12 @@ import { scrapeCareerPages } from "./scraper/index.js";
 import { matchJobs } from "./matcher.js";
 import { createTransporter, sendMatchEmail } from "./emailer.js";
 import { filterByPreferences, formatPreferencesSummary } from "./filters/preferences.js";
+import { discoverAtsJobs, hasSearchProvider } from "../lib/discover-jobs.js";
+import { uniqueBy } from "./utils.js";
 
 const isDryRun = process.argv.includes("--dry-run");
 const skipEmail = process.argv.includes("--no-email");
+const skipDiscover = process.argv.includes("--skip-discover");
 
 async function main() {
   console.log("Careers Scraper\n");
@@ -15,7 +18,8 @@ async function main() {
 
   const env = isDryRun ? null : loadEnv({ requireEmail: !skipEmail });
 
-  console.log(`Career pages: ${config.careerPages.length}`);
+  console.log(`Career pages:   ${config.careerPages.length}`);
+  console.log(`ATS discovery:  ${skipDiscover ? "off" : hasSearchProvider() ? "on" : "off (no SERPER_API_KEY)"}`);
   console.log(`Fit threshold:  > ${minFitScore}/5`);
   console.log(`Engineering only: ${config.engineeringOnly ? "yes" : "no"}`);
   if (config.preferences?.enabled !== false) {
@@ -23,19 +27,39 @@ async function main() {
   }
   console.log();
 
-  console.log("Step 1: Scraping job listings...");
-  const jobs = await scrapeCareerPages(config.careerPages, {
+  console.log("Step 1: Scraping career pages...");
+  const scrapedJobs = await scrapeCareerPages(config.careerPages, {
     maxJobsPerPage: config.maxJobsPerPage,
     engineeringOnly: config.engineeringOnly,
   });
-  console.log(`\nFound ${jobs.length} unique ${config.engineeringOnly ? "engineering " : ""}job(s) across all pages.`);
+  console.log(`  → ${scrapedJobs.length} job(s) from careers.json\n`);
+
+  let discoveredJobs = [];
+  if (!skipDiscover && hasSearchProvider()) {
+    console.log("Step 2: Discovering jobs via ATS search (Google site: dorks)...");
+    const { jobs } = await discoverAtsJobs(config, {
+      engineeringOnly: config.engineeringOnly,
+      saveOutput: true,
+      onProgress: ({ current, total, label }) => {
+        process.stdout.write(`\r  [${current}/${total}] ${label}`.padEnd(50));
+      },
+    });
+    discoveredJobs = jobs;
+    console.log(`\n  → ${discoveredJobs.length} job(s) from ATS discovery\n`);
+  } else if (!skipDiscover && !hasSearchProvider()) {
+    console.log("Step 2: Skipped ATS discovery — add SERPER_API_KEY to .env (https://serper.dev)\n");
+  }
+
+  const allJobs = uniqueBy(
+    [...scrapedJobs.map((j) => ({ ...j, source: "scrape" })), ...discoveredJobs],
+    (j) => j.url
+  );
+  console.log(`Combined:       ${allJobs.length} unique job(s)\n`);
 
   const preferredJobs =
-    config.preferences?.enabled === false ? jobs : filterByPreferences(jobs, config.preferences);
+    config.preferences?.enabled === false ? allJobs : filterByPreferences(allJobs, config.preferences);
   if (config.preferences?.enabled !== false) {
-    console.log(`After preferences:  ${preferredJobs.length} job(s) (${formatPreferencesSummary(config.preferences)})\n`);
-  } else {
-    console.log();
+    console.log(`After preferences: ${preferredJobs.length} job(s)\n`);
   }
 
   if (preferredJobs.length === 0) {
@@ -44,9 +68,10 @@ async function main() {
   }
 
   if (isDryRun) {
-    console.log("Dry run — listing scraped jobs (no AI scoring or email):\n");
+    console.log("Dry run — listing jobs (no AI scoring or email):\n");
     for (const job of preferredJobs) {
-      console.log(`  • ${job.title} @ ${job.company}`);
+      const tag = job.source === "discover" ? " [discovered]" : "";
+      console.log(`  • ${job.title} @ ${job.company}${tag}`);
       console.log(`    ${job.url}\n`);
     }
     return;
@@ -58,7 +83,8 @@ async function main() {
     throw new Error("OPENAI_API_KEY is required for resume matching. Set it in .env");
   }
 
-  console.log("Step 2: Matching jobs against your resume...");
+  const matchStep = skipDiscover || !hasSearchProvider() ? 2 : 3;
+  console.log(`Step ${matchStep}: Matching jobs against your resume...`);
   const matches = await matchJobs({
     jobs: preferredJobs,
     resume,
@@ -72,7 +98,7 @@ async function main() {
   });
   console.log("\n");
 
-  console.log(`\n${matches.length} job(s) scored above ${minFitScore}/5.\n`);
+  console.log(`${matches.length} job(s) scored above ${minFitScore}/5.\n`);
 
   if (matches.length === 0) {
     console.log("No matches to email. Try lowering minFitScore or updating your resume.");
@@ -89,7 +115,8 @@ async function main() {
     return;
   }
 
-  console.log("\nStep 3: Sending email...");
+  const emailStep = matchStep + 1;
+  console.log(`\nStep ${emailStep}: Sending email...`);
   const transporter = createTransporter(env.smtp);
   await sendMatchEmail({
     transporter,

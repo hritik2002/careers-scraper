@@ -1,11 +1,25 @@
 export function detectPlatform(url) {
   const parsed = new URL(url);
 
+  if (parsed.hostname.includes("darwinbox.in")) {
+    const tenant = parsed.hostname.split(".")[0];
+    return { platform: "darwinbox", company: tenant || null };
+  }
+
+  if (parsed.hostname.includes("talentrecruit.com")) {
+    const tenant = parsed.hostname.split(".")[0];
+    return { platform: "talentrecruit", company: tenant || null };
+  }
+
+  if (parsed.hostname === "careers.cult.fit" || parsed.hostname.endsWith(".zwayam.com")) {
+    return { platform: "zwayam", company: parsed.hostname.split(".")[0] || null };
+  }
+
   if (parsed.hostname.includes("greenhouse.io") || parsed.pathname.includes("/embed/job_board")) {
     return { platform: "greenhouse", company: extractGreenhouseCompany(parsed) };
   }
 
-  if (parsed.hostname.includes("lever.co")) {
+  if (parsed.hostname === "api.lever.co" || parsed.hostname.includes("lever.co")) {
     return { platform: "lever", company: extractLeverCompany(parsed) };
   }
 
@@ -70,6 +84,10 @@ function extractGreenhouseCompany(parsed) {
 
 function extractLeverCompany(parsed) {
   const parts = parsed.pathname.split("/").filter(Boolean);
+  if (parsed.hostname === "api.lever.co") {
+    const idx = parts.indexOf("postings");
+    return idx >= 0 ? parts[idx + 1] : null;
+  }
   if (parts[0] === "jobs" || parts[0] === "careers") return parts[1];
   return parts[0] || null;
 }

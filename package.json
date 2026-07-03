@@ -10,7 +10,12 @@
     "check-coverage": "node src/check-coverage.js",
     "validate-careers": "node scripts/validate-careers.js",
     "generate-careers-md": "node scripts/generate-careers-md.js",
-    "probe-rippling": "node scripts/probe-rippling.js",
+    "probe-companies": "node scripts/probe-companies.js",
+    "discover-jobs": "node scripts/discover-ats-jobs.js",
+    "verify-companies": "node scripts/bulk-verify-companies.js",
+    "verify-companies:add": "node scripts/bulk-verify-companies.js --add",
+    "discover-gem": "node scripts/discover-gem-boards.js",
+    "discover-gem:add": "node scripts/discover-gem-boards.js --add",
     "test": "node --test"
   },
   "engines": {

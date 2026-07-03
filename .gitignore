@@ -1,5 +1,7 @@
 node_modules/
 .env
-config.json
 resume.md
+config.json
+discovered-jobs.json
+data/
 .DS_Store

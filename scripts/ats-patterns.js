@@ -1,4 +1,4 @@
-/** ATS URL templates and probe helpers — used by resolve-career-pages.js */
+/** ATS URL templates and probe helpers — used by probe-companies.js and bulk-verify-companies.js */
 
 export const ATS_PATTERNS = {
   ashby: {
@@ -99,34 +99,6 @@ export const ATS_PATTERNS = {
   },
 };
 
-export const GOOGLE_DORKS = [
-  "site:jobs.ashbyhq.com {company}",
-  "site:job-boards.greenhouse.io {company}",
-  "site:boards.greenhouse.io {company}",
-  "site:jobs.lever.co {company}",
-  "site:apply.workable.com {company}",
-  "site:jobs.smartrecruiters.com {company}",
-  "site:jobs.jobvite.com {company}",
-  "site:myworkdayjobs.com {company}",
-  "site:icims.com/jobs {company}",
-  "site:app.dover.com/jobs {company}",
-  "site:careers.kula.ai {company}",
-  "site:ats.rippling.com {company}",
-];
-
-export const VC_AGGREGATORS = [
-  { vc: "Peak XV", url: "https://careers.peakxv.com/jobs" },
-  { vc: "Nexus VP", url: "https://jobs.nexusvp.com/jobs" },
-  { vc: "Elevation Capital", url: "https://apply.workable.com/elevation-capital-3/" },
-];
-
-export const INDIA_FALLBACKS = [
-  { platform: "LinkedIn", url: (slug) => `https://www.linkedin.com/company/${slug}/jobs/` },
-  { platform: "Instahyre", url: (slug) => `https://www.instahyre.com/jobs-at-${slug}/` },
-  { platform: "Wellfound", url: (slug) => `https://wellfound.com/company/${slug}` },
-  { platform: "Cutshort", url: (slug) => `https://cutshort.io/company/${slug}` },
-];
-
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36";
 
@@ -166,14 +138,10 @@ async function probeGreenhouse(slug) {
 
 async function probeLever(slug) {
   try {
-    const response = await fetch(`https://api.lever.co/v0/postings/${slug}?mode=json`, {
-      headers: { "User-Agent": USER_AGENT },
-      signal: AbortSignal.timeout(8000),
-    });
-    if (!response.ok) return null;
-    const data = await response.json();
-    if (!Array.isArray(data)) return null;
-    return { platform: "lever", url: ATS_PATTERNS.lever.url(slug), jobCount: data.length };
+    const { fetchLeverPostings, leverBoardUrl } = await import("../lib/lever-api.js");
+    const data = await fetchLeverPostings(slug);
+    if (!data.length) return null;
+    return { platform: "lever", url: leverBoardUrl(slug), jobCount: data.length };
   } catch {
     return null;
   }

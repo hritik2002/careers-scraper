@@ -8,23 +8,28 @@ import { scrapeRippling } from "./rippling.js";
 import { scrapeGem } from "./gem.js";
 import { scrapeWorkday } from "./workday.js";
 import { scrapeSmartRecruiters } from "./smartrecruiters.js";
+import { scrapeZwayam } from "./zwayam.js";
+import { scrapeDarwinbox } from "./darwinbox.js";
+import { scrapeTalentRecruit } from "./talentrecruit.js";
 import { scrapeGeneric } from "./generic.js";
 import { uniqueBy, sleep } from "../utils.js";
 
 export async function scrapeCareerPages(careerPages, options = {}) {
-  const { maxJobsPerPage = 50, engineeringOnly = true } = options;
+  const { maxJobsPerPage = 50, engineeringOnly = true, silent = false } = options;
   const allJobs = [];
 
   for (const pageUrl of careerPages) {
     try {
       const jobs = await scrapeCareerPage(pageUrl, { maxJobs: maxJobsPerPage, engineeringOnly });
-      const label = engineeringOnly ? "engineering job(s)" : "job(s)";
-      console.log(`  ✓ ${pageUrl} — ${jobs.length} ${label}`);
+      if (!silent) {
+        const label = engineeringOnly ? "engineering job(s)" : "job(s)";
+        console.log(`  ✓ ${pageUrl} — ${jobs.length} ${label}`);
+      }
       allJobs.push(...jobs);
     } catch (err) {
-      console.error(`  ✗ ${pageUrl} — ${err.message}`);
+      if (!silent) console.error(`  ✗ ${pageUrl} — ${err.message}`);
     }
-    await sleep(500);
+    if (!silent) await sleep(500);
   }
 
   return uniqueBy(allJobs, (j) => j.url);
@@ -57,6 +62,12 @@ async function scrapeCareerPage(pageUrl, options) {
     case "smartrecruiters":
       if (!company) throw new Error("Could not detect SmartRecruiters company slug from URL");
       return scrapeSmartRecruiters(company, pageUrl, options);
+    case "zwayam":
+      return scrapeZwayam(pageUrl, options);
+    case "darwinbox":
+      return scrapeDarwinbox(pageUrl, options);
+    case "talentrecruit":
+      return scrapeTalentRecruit(pageUrl, options);
     case "gem":
       return scrapeGem(pageUrl, options);
     default:

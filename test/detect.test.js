@@ -44,6 +44,24 @@ test("detects Gem careers pages", () => {
   assert.equal(result.company, "better-auth");
 });
 
+test("detects Zwayam URLs", () => {
+  const result = detectPlatform("https://careers.cult.fit/cult/jobslist");
+  assert.equal(result.platform, "zwayam");
+  assert.equal(result.company, "careers");
+});
+
+test("detects Darwinbox URLs", () => {
+  const result = detectPlatform("https://spinzone.darwinbox.in/ms/candidate/careers");
+  assert.equal(result.platform, "darwinbox");
+  assert.equal(result.company, "spinzone");
+});
+
+test("detects TalentRecruit URLs", () => {
+  const result = detectPlatform("https://zepto.talentrecruit.com/career-page");
+  assert.equal(result.platform, "talentrecruit");
+  assert.equal(result.company, "zepto");
+});
+
 test("falls back to generic for unknown URLs", () => {
   const result = detectPlatform("https://careers.example.com/jobs");
   assert.equal(result.platform, "generic");

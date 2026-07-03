@@ -6,11 +6,16 @@
   "preferences": {
     "enabled": true,
     "roles": ["software", "frontend", "fullstack", "backend"],
-    "minYearsExperience": 2,
-    "maxYearsExperience": 4,
+    "minYearsExperience": 0,
+    "maxYearsExperience": 3,
     "locations": {
       "india": true,
       "remote": true
     }
+  },
+  "search": {
+    "resultsPerSite": 10,
+    "includeSkills": true,
+    "skills": ["react", "typescript", "javascript", "nodejs", "nextjs"]
   }
 }

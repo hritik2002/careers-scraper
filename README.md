@@ -22,11 +22,8 @@ cp config.example.json config.json
 cp resume.example.md resume.md
 cp .env.example .env
 
-# Edit resume.md and .env
-# Career URLs load from careers.json automatically
-
-npm run scrape   # test scraping
-npm start        # scrape + match + email
+# Edit resume.md, config.json, and .env (OPENAI_API_KEY, SMTP, SERPER_API_KEY)
+npm start   # scrape + discover + match + email (single command)
 ```
 
 ## careers.json (single source of truth)
@@ -70,20 +67,45 @@ Personal settings only — no URLs duplicated here:
 }
 ```
 
+## ATS job discovery (Google site: dorks)
+
+Find less-competitive India engineering roles directly on ATS boards (Ashby, Greenhouse, Lever, etc.) instead of LinkedIn.
+
+```bash
+# Print ready-to-paste Google queries (no API key needed)
+npm run discover-jobs -- --print-queries
+
+# Automated search — add SERPER_API_KEY to .env (https://serper.dev)
+npm run discover-jobs
+
+# Search specific sites and add new boards to careers.json
+npm run discover-jobs -- --sites ashby,greenhouse,lever --add-boards
+```
+
+Queries are built from your `config.json` preferences: software/frontend/full-stack/backend roles, 2–4 YOE, India/remote, plus skills (react, typescript, etc.).
+
+Results save to `discovered-jobs.json` with job URLs and extracted board URLs.
+
 ## npm scripts
 
 | Script | Purpose |
 |--------|---------|
-| `npm start` | Full pipeline: scrape + GPT match + email |
-| `npm run scrape` | Scrape only |
+| `npm start` | **Full pipeline:** scrape careers.json + ATS discovery + GPT match + email |
+| `npm run scrape` | Dry run — list jobs without scoring or email |
 | `npm run check-coverage` | List all career URLs and status |
 | `npm run validate-careers` | Test each URL; update status in careers.json |
 | `npm run generate-careers-md` | Regenerate CAREERS.md |
-| `npm run probe-rippling -- Swiggy Zepto` | Find Rippling boards and add to careers.json |
+| `npm run probe-companies -- Twilio Zepto` | Probe ATS platforms and add working boards. Add `--platform rippling` to target one ATS, `--scan-careers` to also scan the company `/careers` page |
+| `npm run verify-companies` | Bulk-verify companies from a seed file (`--input <file>`, `--add` to append) |
+| `npm run discover-jobs` | Google site: dork search for India engineering roles on ATS boards |
+| `npm run discover-jobs -- --add-boards` | Discover jobs and add new board URLs to careers.json |
+| `npm run discover-gem` | Discover Gem-hosted boards (`--add` to append) |
 
 ## Supported ATS platforms
 
-Greenhouse, Ashby, Lever, Kula, Rippling, Workable, SmartRecruiters, Workday, and generic `/careers` fallbacks.
+Greenhouse, Ashby, Lever, Kula, Rippling, Workable, SmartRecruiters, Workday, Zwayam, Darwinbox, TalentRecruit, and generic `/careers` fallbacks.
+
+**Lever:** boards use the public JSON API (`https://api.lever.co/v0/postings/{slug}?mode=json`) — no HTML scraping. You can add either `https://jobs.lever.co/gohighlevel` or the API URL directly to `careers.json`. During ATS discovery, individual Lever search hits are expanded to full board listings via this API.
 
 ## GitHub Actions (recommended)
 
@@ -130,13 +152,29 @@ If you prefer running on your machine instead of GitHub:
 ```
 careers.json          # Single source of truth — all career page URLs
 src/
-  index.js            # Main pipeline
-  config.js           # Loads careers.json + local config
-  scraper/            # ATS platform scrapers
+  index.js            # Main pipeline (scrape → discover → match → email)
+  config.js           # Loads careers.json + local config + env
+  matcher.js          # OpenAI resume-fit scoring
+  emailer.js          # SMTP match emails
+  check-coverage.js   # List all career URLs and their status
+  filters/            # Engineering-role and preference filters
+  scraper/            # ATS platform scrapers (greenhouse, lever, ashby, …)
 lib/
   careers.js          # Read/write careers.json
+  discover-jobs.js    # ATS dork discovery pipeline
+  dork-queries.js     # Build Google site: queries from preferences
+  parse-search-hits.js# Normalize search hits → board URLs
+  search-providers.js # Serper / Google CSE search
+  ats-sites.js        # ATS hosts to search
+  lever-api.js        # Lever public JSON API client
+  gem-api.js          # Gem board client
 scripts/
-  validate-careers.js
+  validate-careers.js # Test each URL; update status in careers.json
   generate-careers-md.js
-  ats-patterns.js     # ATS probe helpers (for probe-rippling)
+  probe-companies.js  # Probe ATS platforms for a company; add boards
+  bulk-verify-companies.js
+  discover-ats-jobs.js
+  discover-gem-boards.js
+  ats-patterns.js     # ATS probe helpers (for probe-companies / bulk-verify)
+  ci-setup.js         # Writes resume.md from RESUME_MD secret in CI
 ```
