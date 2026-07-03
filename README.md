@@ -1,5 +1,15 @@
 # Careers Scraper
 
+## No bullshit guide
+
+```bash
+npm install
+npm run setup   # creates config.json, resume.md, and .env from templates
+
+# Edit resume.md, config.json, and .env (OPENAI_API_KEY, SMTP, SERPER_API_KEY)
+npm start       # scrape + discover + match + email (single command)
+```
+
 This is how the email looks like every morning from this repo:
 <img width="1104" height="625" alt="Screenshot 2026-06-15 at 2 45 36 AM" src="https://github.com/user-attachments/assets/2fc3ee34-f768-459d-ab7f-95b9e18e545a" />
 
@@ -14,15 +24,6 @@ Scrape job listings from career pages, score how well they match your resume wit
 2. **Match** — Sends each job + your resume to OpenAI for a fit score (0–5)
 3. **Email** — Sends alerts for jobs above `minFitScore` (default 2.5)
 
-## Quick start
-
-```bash
-npm install
-npm run setup   # creates config.json, resume.md, and .env from templates
-
-# Edit resume.md, config.json, and .env (OPENAI_API_KEY, SMTP, SERPER_API_KEY)
-npm start       # scrape + discover + match + email (single command)
-```
 
 `npm run setup` only copies the templates — it never overwrites files you've
 already edited, so it's safe to re-run.
