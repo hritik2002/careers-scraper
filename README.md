@@ -18,12 +18,19 @@ Scrape job listings from career pages, score how well they match your resume wit
 
 ```bash
 npm install
-cp config.example.json config.json
-cp resume.example.md resume.md
-cp .env.example .env
+npm run setup   # creates config.json, resume.md, and .env from templates
 
 # Edit resume.md, config.json, and .env (OPENAI_API_KEY, SMTP, SERPER_API_KEY)
-npm start   # scrape + discover + match + email (single command)
+npm start       # scrape + discover + match + email (single command)
+```
+
+`npm run setup` only copies the templates — it never overwrites files you've
+already edited, so it's safe to re-run.
+
+Prefer a no-email dry run first to see what gets scraped:
+
+```bash
+npm run scrape   # lists matching jobs, no AI scoring or email
 ```
 
 ## careers.json (single source of truth)

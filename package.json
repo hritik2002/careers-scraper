@@ -5,6 +5,7 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
+    "setup": "node scripts/setup.js",
     "start": "node src/index.js",
     "scrape": "node src/index.js --dry-run",
     "check-coverage": "node src/check-coverage.js",
@@ -15,8 +16,7 @@
     "verify-companies": "node scripts/bulk-verify-companies.js",
     "verify-companies:add": "node scripts/bulk-verify-companies.js --add",
     "discover-gem": "node scripts/discover-gem-boards.js",
-    "discover-gem:add": "node scripts/discover-gem-boards.js --add",
-    "test": "node --test"
+    "discover-gem:add": "node scripts/discover-gem-boards.js --add"
   },
   "engines": {
     "node": ">=18"
