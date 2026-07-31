@@ -6,6 +6,9 @@ on:
     - cron: "30 4 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   scrape-and-email:
     runs-on: ubuntu-latest
@@ -38,3 +41,14 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           CONFIG_PATH: config.example.json
         run: npm start
+
+      - name: Persist sent-jobs history
+        if: always()
+        run: |
+          if [ -f sent-jobs.json ] && [ -n "$(git status --porcelain sent-jobs.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add sent-jobs.json
+            git commit -m "chore: update sent-jobs history [skip ci]"
+            git push
+          fi

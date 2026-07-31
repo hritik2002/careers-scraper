@@ -4,6 +4,7 @@ import { matchJobs } from "./matcher.js";
 import { createTransporter, sendMatchEmail } from "./emailer.js";
 import { filterByPreferences, formatPreferencesSummary } from "./filters/preferences.js";
 import { discoverAtsJobs, hasSearchProvider } from "../lib/discover-jobs.js";
+import { loadSentJobs, saveSentJobs } from "../lib/sent-jobs.js";
 import { uniqueBy } from "./utils.js";
 
 const isDryRun = process.argv.includes("--dry-run");
@@ -77,6 +78,15 @@ async function main() {
     return;
   }
 
+  const sentJobs = loadSentJobs();
+  const unseenJobs = preferredJobs.filter((j) => !sentJobs.has(j.url));
+  console.log(`Already emailed: ${preferredJobs.length - unseenJobs.length} job(s), skipping\n`);
+
+  if (unseenJobs.length === 0) {
+    console.log("No new jobs since the last run.");
+    return;
+  }
+
   const resume = loadResume();
   const apiKey = env?.openaiApiKey || process.env.OPENAI_API_KEY;
   if (!apiKey) {
@@ -86,7 +96,7 @@ async function main() {
   const matchStep = skipDiscover || !hasSearchProvider() ? 2 : 3;
   console.log(`Step ${matchStep}: Matching jobs against your resume...`);
   const matches = await matchJobs({
-    jobs: preferredJobs,
+    jobs: unseenJobs,
     resume,
     openaiApiKey: apiKey,
     model: env?.openaiModel || process.env.OPENAI_MODEL || "gpt-4o-mini",
@@ -125,6 +135,8 @@ async function main() {
     matches,
   });
   console.log(`Email sent to ${env.emailTo}`);
+
+  saveSentJobs(new Set([...sentJobs, ...matches.map((j) => j.url)]));
 }
 
 main().catch((err) => {
