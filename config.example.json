@@ -5,7 +5,7 @@
   "engineeringOnly": true,
   "preferences": {
     "enabled": true,
-    "roles": ["software", "frontend", "fullstack", "backend"],
+    "roles": ["frontend", "backend", "fullstack", "infra"],
     "minYearsExperience": 0,
     "maxYearsExperience": 3,
     "locations": {

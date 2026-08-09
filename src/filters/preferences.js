@@ -11,15 +11,25 @@ const ROLE_GROUPS = {
   frontend: ["frontend", "front-end", "front end", "react", "ui engineer"],
   fullstack: ["full stack", "fullstack", "full-stack"],
   backend: ["backend", "back-end", "back end", "server-side", "server engineer", "api engineer"],
+  infra: [
+    "infrastructure",
+    "infra engineer",
+    "platform engineer",
+    "devops",
+    "dev ops",
+    "site reliability",
+    "sre",
+    "reliability engineer",
+    "cloud engineer",
+    "systems engineer",
+    "kubernetes",
+  ],
 };
 
 const ROLE_EXCLUDE = [
   "data scientist",
   "machine learning",
   "ml engineer",
-  "devops",
-  "site reliability",
-  "sre",
   "security engineer",
   "android engineer",
   "ios engineer",
@@ -156,7 +166,7 @@ const ONSITE_ONLY_EXCLUDE = [
 
 const DEFAULT_PREFERENCES = {
   enabled: true,
-  roles: ["software", "frontend", "fullstack", "backend"],
+  roles: ["frontend", "backend", "fullstack", "infra"],
   minYearsExperience: 2,
   maxYearsExperience: 4,
   locations: {
@@ -167,7 +177,7 @@ const DEFAULT_PREFERENCES = {
 
 function getActiveRoleKeywords(preferences) {
   const roles = preferences.roles?.length ? preferences.roles : DEFAULT_PREFERENCES.roles;
-  const keywords = new Set();
+  const keywords = new Set(ROLE_GROUPS.software);
 
   for (const role of roles) {
     const key = role.toLowerCase().replace(/-/g, "");
@@ -286,7 +296,7 @@ export function formatPreferencesForPrompt(preferences = DEFAULT_PREFERENCES) {
   if (prefs.locations.remote) locations.push("Remote (global or India remote)");
 
   return [
-    `Target roles: Software, Frontend, Full-Stack, and Backend engineering only. Reject QA, testing, SDET, ML, DevOps, and management roles.`,
+    `Target roles: Frontend, Backend, Full-Stack, Infrastructure/Platform/DevOps/SRE, and general Software engineering. Reject QA, testing, SDET, ML/data science, and management roles.`,
     `Experience: ${prefs.minYearsExperience}–${prefs.maxYearsExperience} years. Reject roles requiring more than ${prefs.maxYearsExperience} years or senior/staff/principal titles.`,
     `Location: ${locations.join(" or ")} only. Downscore or reject roles requiring on-site outside India with no remote option.`,
   ].join("\n");
