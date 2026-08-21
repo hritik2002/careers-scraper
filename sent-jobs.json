@@ -3,8 +3,10 @@
   "https://api.smartrecruiters.com/v1/companies/aristanetworks/postings/744000142622720",
   "https://api.smartrecruiters.com/v1/companies/coditationsystems/postings/743999717028860",
   "https://api.smartrecruiters.com/v1/companies/eurofins/postings/744000143532649",
+  "https://api.smartrecruiters.com/v1/companies/eurofins/postings/744000144520379",
   "https://api.smartrecruiters.com/v1/companies/mindtickle/postings/80590885",
   "https://api.smartrecruiters.com/v1/companies/polygontechnology/postings/744000133267379",
+  "https://api.smartrecruiters.com/v1/companies/polygontechnology/postings/744000144269940",
   "https://api.smartrecruiters.com/v1/companies/servicenow/postings/744000144386100",
   "https://api.smartrecruiters.com/v1/companies/servicenow/postings/744000144386220",
   "https://api.smartrecruiters.com/v1/companies/shipsy/postings/744000002694405",
@@ -18,6 +20,7 @@
   "https://job-boards.greenhouse.io/atomicwork/jobs/4249636008",
   "https://job-boards.greenhouse.io/gitlab/jobs/8615332002",
   "https://job-boards.greenhouse.io/gitlab/jobs/8695515002",
+  "https://job-boards.greenhouse.io/gitlab/jobs/8698330002",
   "https://job-boards.greenhouse.io/impact/jobs/8225665002",
   "https://job-boards.greenhouse.io/postman/jobs/7858498003",
   "https://job-boards.greenhouse.io/quince/jobs/5183986008",
@@ -50,5 +53,6 @@
   "https://jobs.lever.co/neuron7/3e5b2afa-c8f0-4ad0-adea-34e7604773cc",
   "https://www.coinbase.com/careers/positions/8022068?gh_jid=8022068",
   "https://www.coinbase.com/careers/positions/8070574?gh_jid=8070574",
-  "https://www.rubrik.com/company/careers/departments/job.7315060?gh_jid=7315060"
+  "https://www.rubrik.com/company/careers/departments/job.7315060?gh_jid=7315060",
+  "https://www.rubrik.com/company/careers/departments/job.8121053?gh_jid=8121053"
 ]
