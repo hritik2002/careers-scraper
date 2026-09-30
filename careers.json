@@ -1,5 +1,4 @@
 {
-  "updatedAt": "2026-08-09T12:26:18.748Z",
   "pages": [
     {
       "url": "https://ats.rippling.com/alaan-careers/jobs"
@@ -717,6 +716,191 @@
     },
     {
       "url": "https://broadcom.wd1.myworkdayjobs.com/External_Career"
+    },
+    {
+      "url": "https://jobs.lever.co/gushwork",
+      "status": "verified",
+      "platform": "lever",
+      "jobs": 12,
+      "source": "Gushwork",
+      "checkedAt": "2026-09-23T11:29:18.068Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/instawork",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 55,
+      "source": "Instawork",
+      "checkedAt": "2026-09-23T11:29:49.593Z"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/kodo",
+      "status": "verified",
+      "platform": "smartrecruiters",
+      "jobs": 1,
+      "source": "Kodo",
+      "checkedAt": "2026-09-23T11:30:20.172Z"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/lokal",
+      "status": "verified",
+      "platform": "smartrecruiters",
+      "jobs": 9,
+      "source": "Lokal",
+      "checkedAt": "2026-09-23T11:31:35.548Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/stripe",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 683,
+      "source": "stripe",
+      "checkedAt": "2026-09-23T12:19:48.169Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/atlys",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 28,
+      "source": "atlys",
+      "checkedAt": "2026-09-23T12:19:48.592Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/fivetran",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 198,
+      "source": "fivetran",
+      "checkedAt": "2026-09-23T12:19:49.749Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/kong",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 77,
+      "source": "kong",
+      "checkedAt": "2026-09-23T12:19:50.127Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/starburst",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 26,
+      "source": "starburst",
+      "checkedAt": "2026-09-23T12:19:50.997Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/ambient.ai",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 2,
+      "source": "ambient.ai",
+      "checkedAt": "2026-09-23T12:20:45.265Z"
+    },
+    {
+      "url": "https://jobs.lever.co/greenlight",
+      "status": "verified",
+      "platform": "lever",
+      "jobs": 17,
+      "source": "greenlight",
+      "checkedAt": "2026-09-23T12:21:47.994Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/waymo",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 352,
+      "source": "waymo",
+      "checkedAt": "2026-09-23T12:21:48.906Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/earnin",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 18,
+      "source": "earnin",
+      "checkedAt": "2026-09-23T12:21:49.561Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/databricks",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 885,
+      "source": "databricks",
+      "checkedAt": "2026-09-23T12:21:50.604Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/harvey",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 312,
+      "source": "harvey",
+      "checkedAt": "2026-09-23T12:21:50.817Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/cursor",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 124,
+      "source": "cursor",
+      "checkedAt": "2026-09-23T12:21:50.922Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/forwardnetworks",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 18,
+      "source": "forwardnetworks",
+      "checkedAt": "2026-09-23T12:22:12.443Z"
+    },
+    {
+      "url": "https://jobs.lever.co/shieldai",
+      "status": "verified",
+      "platform": "lever",
+      "jobs": 524,
+      "source": "shieldai",
+      "checkedAt": "2026-09-23T12:22:55.923Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/komodohealth",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 29,
+      "source": "komodohealth",
+      "checkedAt": "2026-09-23T12:22:56.727Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/elevenlabs",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 225,
+      "source": "elevenlabs",
+      "checkedAt": "2026-09-23T12:22:57.196Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/cresta",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 96,
+      "source": "cresta",
+      "checkedAt": "2026-09-23T12:23:20.168Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/cognition",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 101,
+      "source": "cognition",
+      "checkedAt": "2026-09-23T12:23:20.292Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/planetscale",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 13,
+      "source": "planetscale",
+      "checkedAt": "2026-09-23T12:23:20.871Z"
     }
-  ]
+  ],
+  "updatedAt": "2026-09-23T12:23:33.062Z"
 }
