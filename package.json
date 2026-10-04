@@ -8,6 +8,7 @@
     "setup": "node scripts/setup.js",
     "start": "node src/index.js",
     "scrape": "node src/index.js --dry-run",
+    "scrape:sources": "node src/index.js --dry-run --sources-only",
     "check-coverage": "node src/check-coverage.js",
     "validate-careers": "node scripts/validate-careers.js",
     "generate-careers-md": "node scripts/generate-careers-md.js",

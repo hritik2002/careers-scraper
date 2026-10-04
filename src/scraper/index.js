@@ -35,7 +35,7 @@ export async function scrapeCareerPages(careerPages, options = {}) {
   return uniqueBy(allJobs, (j) => j.url);
 }
 
-async function scrapeCareerPage(pageUrl, options) {
+export async function scrapeCareerPage(pageUrl, options) {
   const { platform, company } = detectPlatform(pageUrl);
 
   switch (platform) {

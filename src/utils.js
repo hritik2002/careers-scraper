@@ -3,6 +3,7 @@ const USER_AGENT =
 
 export async function fetchText(url, options = {}) {
   const response = await fetch(url, {
+    signal: AbortSignal.timeout(30000),
     headers: {
       "User-Agent": USER_AGENT,
       Accept: "text/html,application/json",
@@ -20,6 +21,7 @@ export async function fetchText(url, options = {}) {
 
 export async function fetchJson(url) {
   const response = await fetch(url, {
+    signal: AbortSignal.timeout(30000),
     headers: {
       "User-Agent": USER_AGENT,
       Accept: "application/json",

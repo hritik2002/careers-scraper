@@ -3,6 +3,18 @@
   "minFitScore": 2.5,
   "maxJobsPerPage": 50,
   "engineeringOnly": true,
+  "additionalSources": {
+    "enabled": true,
+    "sources": ["yc", "lenny", "breakout", "hn", "founders-ysk", "ramp", "a16z-build", "next-play", "cosign"],
+    "maxJobsPerSource": 100,
+    "maxCompaniesPerSource": 25,
+    "maxPagesPerCompany": 3,
+    "maxFeedItems": 5,
+    "maxAgeDays": 60,
+    "hnThreads": 2,
+    "hnMaxComments": 300,
+    "requestTimeoutMs": 15000
+  },
   "preferences": {
     "enabled": true,
     "roles": ["frontend", "backend", "fullstack", "infra"],

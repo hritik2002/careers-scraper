@@ -35,11 +35,11 @@ export function detectPlatform(url) {
     return { platform: "workable", company: extractWorkableAccount(parsed) };
   }
 
-  if (parsed.hostname.includes("rippling.com")) {
+  if (parsed.hostname === "ats.rippling.com") {
     return { platform: "rippling", company: extractRipplingBoard(parsed) };
   }
 
-  if (parsed.hostname.includes("jobs.gem.com") || isGemCareersPage(parsed)) {
+  if (parsed.hostname.includes("jobs.gem.com")) {
     return { platform: "gem", company: extractGemBoard(parsed) };
   }
 
@@ -114,10 +114,6 @@ function extractRipplingBoard(parsed) {
   const locale = /^[a-z]{2}(-[A-Z]{2})?$/;
   const start = parts[0] && locale.test(parts[0]) ? 1 : 0;
   return parts[start] || null;
-}
-
-function isGemCareersPage(parsed) {
-  return parsed.pathname.includes("/careers");
 }
 
 function extractGemBoard(parsed) {

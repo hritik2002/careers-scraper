@@ -16,13 +16,15 @@ This is how the email looks like every morning from this repo:
 
 Scrape job listings from career pages, score how well they match your resume with AI, and email you the best fits.
 
-**Career page list:** [`careers.json`](careers.json) is the single source of truth — 82 curated URLs. See [`CAREERS.md`](CAREERS.md) for a browsable table.
+**Career page list:** [`careers.json`](careers.json) contains the curated ATS URLs. See [`CAREERS.md`](CAREERS.md) for a browsable table. Nine additional public sources are enabled automatically.
 
 ## How it works
 
 1. **Scrape** — Reads URLs from `careers.json` and pulls jobs from Greenhouse, Lever, Ashby, Rippling, Kula, and other ATS boards
-2. **Match** — Sends each job + your resume to OpenAI for a fit score (0–5)
-3. **Email** — Sends alerts for jobs above `minFitScore` (default 2.5)
+2. **Discover** — Reads the additional sources below, plus optional ATS search results
+3. **Filter** — Combines jobs by canonical URL, applies preferences, and skips jobs already emailed before AI scoring
+4. **Match** — Sends each remaining job + your resume to OpenAI for a fit score (0–5)
+5. **Email** — Sends alerts for jobs above `minFitScore` (default 2.5), then records successfully emailed URLs in `sent-jobs.json`
 
 
 `npm run setup` only copies the templates — it never overwrites files you've
@@ -94,12 +96,58 @@ Queries are built from your `config.json` preferences: software/frontend/full-st
 
 Results save to `discovered-jobs.json` with job URLs and extracted board URLs.
 
+## Additional job sources
+
+These run in both local and GitHub Actions runs, including existing local configs. They use public pages and feeds and require no extra API keys.
+
+| ID | Source | What is collected |
+|----|--------|-------------------|
+| `yc` | [YC job board](https://www.ycombinator.com/jobs) | Public job listings and descriptions |
+| `lenny` | [Lenny's Jobs](https://www.lennysjobs.com/lenny100) | Current openings at public Lenny 100 employers; the live TrueUp feed requires signed browser requests |
+| `breakout` | [Breakout List](https://breakoutlist.com/) | Employers' websites → careers pages → current jobs |
+| `hn` | [HN Who's Hiring](https://news.ycombinator.com/submitted?id=whoishiring) | Recent official monthly threads' top-level employer posts |
+| `founders-ysk` | [Founders You Should Know](https://newsletter.foundersysk.com/) | Public recap/newsletter job links and featured employers |
+| `ramp` | [Ramp vendor reports](https://ramp.com/vendors) | Vendor reports → vendor websites → careers pages |
+| `a16z-build` | [a16z Build newsletter](https://a16zbuild.substack.com/) | Public job links; currently redirects to a16z Jobs |
+| `next-play` | [Next Play](https://nextplayso.substack.com/) | Public newsletter links to jobs and employer boards |
+| `cosign` | [Cosign](https://cosign.co/jobs) | The anonymous public subset of current jobs |
+
+Company directories are leads to real openings; their directory entries are never scored as jobs. Newsletter adapters follow public job links and omit paid-only text and email-only opportunities. Source failures are printed in the run log and the remaining sources continue.
+
+```bash
+npm run scrape:sources                  # dry run of the nine sources only
+npm run scrape -- --skip-sources        # career pages and optional ATS discovery
+npm run scrape -- --skip-discover       # skip Google ATS searches
+```
+
+To customize coverage, add `additionalSources` to `config.json` (and edit `config.example.json` for CI):
+
+```json
+{
+  "additionalSources": {
+    "enabled": true,
+    "sources": ["yc", "lenny", "breakout", "hn", "founders-ysk", "ramp", "a16z-build", "next-play", "cosign"],
+    "maxJobsPerSource": 100,
+    "maxCompaniesPerSource": 25,
+    "maxPagesPerCompany": 3,
+    "maxFeedItems": 5,
+    "maxAgeDays": 60,
+    "hnThreads": 2,
+    "hnMaxComments": 300,
+    "requestTimeoutMs": 15000
+  }
+}
+```
+
+These are the defaults. Collection is bounded: raise the company, page, or feed caps for broader coverage. `maxJobsPerPage` still limits jobs returned from each discovered employer board. Set `enabled` to `false` or select fewer source IDs to shorten runs. Existing preference filters, scoring, and sent-job history apply to every source.
+
 ## npm scripts
 
 | Script | Purpose |
 |--------|---------|
-| `npm start` | **Full pipeline:** scrape careers.json + ATS discovery + GPT match + email |
+| `npm start` | **Full pipeline:** career pages + nine additional sources + optional ATS discovery + GPT match + email |
 | `npm run scrape` | Dry run — list jobs without scoring or email |
+| `npm run scrape:sources` | Dry run of the nine additional sources only |
 | `npm run check-coverage` | List all career URLs and status |
 | `npm run validate-careers` | Test each URL; update status in careers.json |
 | `npm run generate-careers-md` | Regenerate CAREERS.md |
@@ -160,13 +208,14 @@ If you prefer running on your machine instead of GitHub:
 ```
 careers.json          # Single source of truth — all career page URLs
 src/
-  index.js            # Main pipeline (scrape → discover → match → email)
+  index.js            # Main pipeline (scrape + sources → discover → match → email)
   config.js           # Loads careers.json + local config + env
   matcher.js          # OpenAI resume-fit scoring
   emailer.js          # SMTP match emails
   check-coverage.js   # List all career URLs and their status
   filters/            # Engineering-role and preference filters
   scraper/            # ATS platform scrapers (greenhouse, lever, ashby, …)
+  sources/            # Public boards, newsletters, directories, HN, URL normalization
 lib/
   careers.js          # Read/write careers.json
   discover-jobs.js    # ATS dork discovery pipeline

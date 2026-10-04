@@ -43,6 +43,8 @@ export function loadConfig() {
     maxJobsPerPage: config.maxJobsPerPage ?? 50,
     engineeringOnly: config.engineeringOnly ?? true,
     preferences: config.preferences ?? {},
+    search: config.search ?? {},
+    additionalSources: config.additionalSources ?? {},
   };
 }
 
