@@ -900,7 +900,247 @@
       "jobs": 13,
       "source": "planetscale",
       "checkedAt": "2026-09-23T12:23:20.871Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/mirendil",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 16,
+      "source": "Mirendil",
+      "checkedAt": "2026-11-15T08:25:49.982Z"
+    },
+    {
+      "url": "https://ats.rippling.com/torus/jobs",
+      "status": "verified",
+      "platform": "rippling",
+      "jobs": 20,
+      "source": "Torus",
+      "checkedAt": "2026-11-15T08:26:21.264Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/mavria",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 14,
+      "source": "Mavria",
+      "checkedAt": "2026-11-15T08:26:21.695Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/rox-data-corp",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 2,
+      "source": "Rox",
+      "checkedAt": "2026-11-15T08:26:22.420Z"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/daylightsecurity",
+      "status": "verified",
+      "platform": "greenhouse",
+      "jobs": 34,
+      "source": "Daylight Security",
+      "checkedAt": "2026-11-15T08:26:23.246Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/mercor",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 91,
+      "source": "Mercor",
+      "checkedAt": "2026-11-15T08:26:23.623Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/coframe",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 17,
+      "source": "Coframe",
+      "checkedAt": "2026-11-15T08:26:24.119Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/pliant",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 36,
+      "source": "Pliant",
+      "checkedAt": "2026-11-15T08:26:24.424Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/traversal",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 31,
+      "source": "Traversal",
+      "checkedAt": "2026-11-15T08:26:24.775Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/serval",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 68,
+      "source": "Serval",
+      "checkedAt": "2026-11-15T08:27:02.545Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/infisical",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 12,
+      "source": "Infisical",
+      "checkedAt": "2026-11-15T08:27:31.772Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/hyperbolic",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 20,
+      "source": "Hyperbolic",
+      "checkedAt": "2026-11-15T08:27:32.070Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/generalcompute",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 7,
+      "source": "General Compute",
+      "checkedAt": "2026-11-15T08:28:47.135Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/alta",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 6,
+      "source": "Alta",
+      "checkedAt": "2026-11-15T08:30:28.112Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/whop",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 39,
+      "source": "Whop",
+      "checkedAt": "2026-11-15T08:30:28.495Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/legora",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 341,
+      "source": "Legora",
+      "checkedAt": "2026-11-15T08:30:28.950Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/blacksmith",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 18,
+      "source": "Blacksmith",
+      "checkedAt": "2026-11-15T08:30:29.286Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/baba",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 13,
+      "source": "Baba",
+      "checkedAt": "2026-11-15T08:30:29.660Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/helicon",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 4,
+      "source": "Helicon",
+      "checkedAt": "2026-11-15T08:31:23.141Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/town",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 17,
+      "source": "Town",
+      "checkedAt": "2026-11-15T08:32:09.189Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/greptile",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 16,
+      "source": "Greptile",
+      "checkedAt": "2026-11-15T08:32:09.505Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/modal",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 43,
+      "source": "Modal",
+      "checkedAt": "2026-11-15T08:32:09.622Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/causaprima",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 11,
+      "source": "Causa Prima",
+      "checkedAt": "2026-11-15T08:32:09.950Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/scarlet",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 19,
+      "source": "Scarlet",
+      "checkedAt": "2026-11-15T08:32:10.040Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/vesta",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 12,
+      "source": "Vesta",
+      "checkedAt": "2026-11-15T08:34:01.063Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/preference-model",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 2,
+      "source": "Preference Model",
+      "checkedAt": "2026-11-15T08:35:33.348Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/siena",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 7,
+      "source": "Siena AI",
+      "checkedAt": "2026-11-15T08:36:07.725Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/melius",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 5,
+      "source": "Melius",
+      "checkedAt": "2026-11-15T08:36:08.092Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/namespace",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 14,
+      "source": "Namespace",
+      "checkedAt": "2026-11-15T08:36:08.485Z"
+    },
+    {
+      "url": "https://jobs.ashbyhq.com/armadin",
+      "status": "verified",
+      "platform": "ashby",
+      "jobs": 25,
+      "source": "Armadin",
+      "checkedAt": "2026-11-15T08:36:09.111Z"
     }
   ],
-  "updatedAt": "2026-09-23T12:23:33.062Z"
+  "updatedAt": "2026-11-15T08:36:09.111Z"
 }
